@@ -67,15 +67,6 @@ class User extends Model{
      }
 
 
-     public function findUserByEmail($email,$password){
-      $query = "SELECT * FROM users WHERE email = :email  AND password = :password";
-      $data['email'] = $email;
-      $hpassword = $data['email'];
-      $data['password'] = sha1($password);
-      // if(count( $row )  == false ) return false ;  
-      return $this->query($query,$data);
- }
-     
       
      
 }

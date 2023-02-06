@@ -28,7 +28,7 @@ class Model extends Database{
    
 
     public function findAll(){
-        $query = "SELECT * FROM $this->table";
+        $query = "SELECT * FROM $this->table ORDER BY id DESC";
         return $this->query($query); 
           
     }
@@ -45,11 +45,15 @@ class Model extends Database{
                   } 
        }
 
+     $keys = array_keys($data);
+     $columns = implode(',', $keys);
+     $values = implode(',:', $keys);
 
+     $query = "insert into $this->table ($columns) values (:$values)";
 
+     return $this->query($query,$data);
 
-
-       $keys = array_keys($data);
+     //   $keys = array_keys($data);
 
 
 
@@ -59,11 +63,11 @@ class Model extends Database{
 
         //  $values = implode(',:', $keys);  
 
-        $column = implode(',', $keys);
+     //    $column = implode(',', $keys);
 
-        $values = implode(',:', $keys);
+     //    $values = implode(',:', $keys);
           
-        $query = "INSERT INTO $this->table ($column)  VLAUES (:$values)"; 
+     //    $query = "INSERT INTO $this->table ($column)  VLAUES (:$values)"; 
 
         // $con = $this->connect();
         
@@ -71,7 +75,37 @@ class Model extends Database{
 
         // $stm->bindValue(":data", $data['data']);
 
-        return     $this->query($query,$data);
+
+     //    "INSERT INTO USERS('','','') VALUES('','','')";
+     //     "INSERT INTO $this->table() VALUES('','','')"
+         
+    
+
+
+
+
+
+     // $data = array_keys($data);
+    
+    
+    
+    
+       
+     //  $str = "";  
+     //  $values = "";  
+     //  foreach($data as $key => $value){
+     //      $str .= $key .",";
+     //      $values .= $value . ",";
+     //  } 
+    
+     //  $str = trim($str,",");
+     //  $values = trim($values,",");
+    
+     //  $query = "INSERT INTO $this->table($str) VALUES($values)";
+    
+     //  return  $this->query($query,$data);
+    
+
     }
      
 
@@ -103,6 +137,24 @@ class Model extends Database{
          return  $this->query($query,$data);
     
     }
+
+
+
+
+
+
+
+
+    
+    public function findUserByEmail($email,$password){
+      $query = "SELECT * FROM $this->table WHERE email = :email  AND password = :password";
+      $data['email'] = $email;
+      $hpassword = $data['email'];
+      $data['password'] = sha1($password);
+      // if(count( $row )  == false ) return false ;  
+      return $this->query($query,$data);
+ }
+     
 
 
   

@@ -14,7 +14,7 @@ class School extends Model{
        
          $this->errors = array();
 
-        //  Firstname
+        //  school
          if(empty($data['school'])    ||  !preg_match("/^[a-zA-Z]+$/",$data['school'])){
           $this->errors[] = "Only Letter Can Write Here"; 
          }

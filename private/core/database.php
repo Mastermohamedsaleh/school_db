@@ -17,24 +17,38 @@ class Database{
 
     public function query($query , $data = array()){      
         $con = $this->connect();
-        
-        $stm  = $con->prepare($query);
-     
-        if($stm){
-            $check = $stm->execute($data);
-             
-            $data = $stm->fetchAll();  
-               
-              if(is_array($data) && count($data) > 0){
-                 return $data;
-              }
-        }
+		$stm = $con->prepare($query);
+
+        // $stm->execute($data);
+
+  if($stm){
+
+     $check = $stm->execute($data);
+
+     if($check){
+        $result = $stm->fetchAll();
+     }
+ 
+ 
+     return $result;
+    //  if(is_array($data) && count($data) > 0){
+    //     return $result;
+    //  }
+
+  }
+ 
+ 
+ 
+ 
          
       
 
 
 
     }
+
+    
+   
 
 
         

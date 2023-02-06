@@ -17,6 +17,7 @@
 				<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
 			</a>
  		</nav>
+		 <h1 class="text-primary text-center">All Student</h1>
 
 		<div class="card-group justify-content-center">
 
@@ -34,20 +35,18 @@
 					<div class="card m-2 shadow-sm" style="max-width: 12rem;min-width: 12rem;">
 	  <img src="<?=$image?>" class=" rounded-circle card-img-top w-75 d-block mx-auto mt-1" alt="Card image cap">
   <div class="card-body">
-    <center><h5 class="card-title"><?=$row['firstname']?> <?=$row['lastname']?></h5></center>
-    <center><p class="card-text"><?=str_replace("_", " ", $row['rank'])?></p></center>
-    <a   href="<?=ROOT?>/profile/<?=$row['id']?>"   class="btn btn-primary">Profile</a>
+    <center><h5 class="card-title"><?=$row['name_student']?> </h5></center>
+
+    <a   href="<?=ROOT?>/profile/studentprofile/<?=$row['id']?>"   class="btn btn-primary">Profile</a>
     
-    <?php if(isset($_GET['select'])):?>
-      <button name="selected" value="<?=$row->user_id?>" class="float-end btn btn-danger">Select</button>
-    <?php endif;?>
+
 
   </div>
 </div>
 
 	 			<?php endforeach;?>
  			<?php else:?>
- 				<h4>No staff members were found at this time</h4>
+ 				<h4>No Student were found at this time</h4>
  			<?php endif;?>
 		</div>
 

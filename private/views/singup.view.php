@@ -32,6 +32,12 @@
 				<option value="Male" <?=get_select('gender', 'Male') ?>>Male</option>
 				<option value="Female"  <?=get_select('gender', 'Female') ?>>Female</option>
 			</select>
+
+
+             
+<?php  if(isset($_GET['mode']) == 'student') : ?>
+   <input    type="hidden" name = "rank" value="student" >
+<?php  else: ?>
 			<select class="my-2 form-control" name="rank">
 				<option value="" <?=get_select('rank', '') ?>>--Select a Rank--</option>
 				<option value="student"  <?=get_select('rank', 'student') ?>  >Student</option>
@@ -40,7 +46,7 @@
 				<option value="admin"  <?=get_select('rank', 'admin') ?>>Admin</option>
 				<option value="super_admin"  <?=get_select('rank','super_admin') ?>>Super Admin</option>
 			</select>
-
+<?php endif; ?>
 			<input class="my-2 form-control" type="password" name="password" placeholder="Password">
 			<input class="my-2 form-control" type="password" name="password2" placeholder="Retype Password">
 			<br>

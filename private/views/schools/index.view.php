@@ -12,7 +12,7 @@
 			<table class="table table-striped table-hover text-center">
 				<tr><th>School</th><th>Created by</th><th>Date</th>
 					<th>
-						<a href="school/add">
+						<a href="<?=ROOT?>/school/add">
 							<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
 						</a>
 					</th>

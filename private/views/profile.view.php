@@ -1,8 +1,8 @@
-<?php  include('layouts/header.view.php')?>
-<?php  include('layouts/nav.view.php')?>
+<?php  $this->view('layouts/header')?>
+<?php  $this->view('layouts/nav')?>
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-		<?php include('layouts/crumbs.view.php')?>
+	
 		<?php if($rows): ?>
 	<?php	foreach($rows as $row) : ?>
     
@@ -64,4 +64,4 @@
 		</div>
 	</div>
 
-<?php  include('layouts/footer.view.php')?>
+	<?php  $this->view('layouts/footer')?>
