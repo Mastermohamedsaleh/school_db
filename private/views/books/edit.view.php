@@ -7,9 +7,16 @@
 
 <div class="container-fluid shadow  p-4 mx-auto" style="max-width: 1000px;">
 
- <h2 class="text-success text-center">Add Book</h2>
+
+<?php  if($rows):  ?>
+
+ <h2 class="text-success text-center">Update Book</h2>
+
 
  <img src="<?=ROOT?>/logo.png"  class="shadow d-block mx-auto border border-primary  rounded-circle"   style="width:100px;margin-bottom:10px" alt="Logo"> 
+
+
+
 
 
  <?php  if($success): ?>
@@ -38,10 +45,10 @@
 
 <form method = "POST"   enctype="multipart/form-data" >
 
-
+<?php  foreach($rows as $row): ?>
 
 <h5>Name Book:</h5>
-<input type="text" name="name_book" class="form-control mb-2" placeholder = "Name Book"  >
+<input type="text" name="name_book" class="form-control mb-2"  value="<?php echo $row['name_book'] ?>" placeholder = "Name Book"  >
 
 
 <!-- I will Remove Teacher id -->
@@ -52,39 +59,39 @@
 <input type="file" name="file" class="form-control mb-2" placeholder = "Pdf" >
 
 
+<input type="hidden" name="id" value="<?php echo $row['id']?>">
+<input type="hidden" name="pdf" value="<?php echo $row['pdf']?>">
+
 
 <h5>Grade:</h5>
 <select name="grade_id" class="form-control mb-2" >
 <?php  foreach($grades as $grade): ?>
-    <option value="<?php echo $grade['id'] ?>"><?php echo $grade['grade'] ?></option>
+    <option value="<?php   if( $grade['id']  == $row['grade_id'] ){ echo 'selected';}   echo $grade['id']  ?>"><?php echo $grade['grade'] ?></option>
     <?php  endforeach; ?>
 </select> 
 
 
+<!-- Selected No Work -->
 <h5>Classroom:</h5>
 <select name="classroom_id" class="form-control mb-2">
 <?php  foreach($classrooms as $classroom): ?>
-    <option value="<?php echo $classroom['id'] ?>"><?php echo $classroom['classroom'] ?></option>
+    <option value="<?php   if($classroom['id'] == $row['classroom_id']){ echo "selected";}   echo $classroom['id'] ?>"><?php echo $classroom['classroom'] ?></option>
     <?php  endforeach; ?>
 </select>
 
 
-
+<?php endforeach; ?>
 
 <div class="row">
 
 <div class="col-6">
-<button  type="submit" class="btn btn-outline-success">Add Book</button>
-
+<button  type="submit" class="btn btn-outline-success">Update Book</button>
 </div>
 
 
 <div class="col-6">
-<a href="<?=ROOT?>/book"  class="btn btn-outline-danger"> Cancle</a>
-
+<a href="<?=ROOT?>/book"  class="btn btn-outline-danger">Cancle</a>
 </div>
-
-
 
 
 </div>
@@ -93,8 +100,10 @@
 
 
 </form>
-
-
+<?php else: ?>
+  <h1 class="text-danger">No Book Here</h1>
+   <a href="<?=ROOT?>/book">Cancle</a>
+<?php  endif; ?>
 </div>
 
 

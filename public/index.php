@@ -10,9 +10,6 @@ require "../private/core/autoload.php";
 new App(); 
 
 
- 
-
-
 
 
 

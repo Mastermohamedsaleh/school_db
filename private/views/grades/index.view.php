@@ -55,21 +55,6 @@
 
             <a href="grade/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			</td>
 
 

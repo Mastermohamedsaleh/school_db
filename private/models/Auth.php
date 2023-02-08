@@ -2,7 +2,7 @@
 
 
 
-class Auth{
+class Auth  extends Database{
     public static function authenticateADMIN($row){
         $_SESSION['ADMIN'] = $row;  
     }
@@ -61,6 +61,49 @@ class Auth{
 
 		return false;
 	}
+
+
+// All Item In Teacher
+   public   static function  teacher($item){
+
+	foreach ($_SESSION['TEACHER'] as $value    ){
+     
+		$row =  $value[$item];
+	 }
+
+     return $row;
+	
+   }
+
+   public   static function  admin($item){
+
+	foreach ($_SESSION['ADMIN'] as $value    ){
+     
+		$row =  $value[$item];
+	 }
+
+     return $row;
+	
+   }
+
+   public   static function  Student($item){
+
+	foreach ($_SESSION['ADMIN'] as $value    ){
+     
+		$row =  $value[$item];
+	 }
+
+     return $row;
+	
+   }
+
+
+
+
+
+
+
+
 
     public static function user(){
         if(isset($_SESSION['USER']))

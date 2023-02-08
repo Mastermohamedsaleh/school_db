@@ -19,4 +19,12 @@ class CancleController extends Controller {
 
   }
 
+
+
+  //  public function canclebook(){
+  //   return $this->view('books/index');
+  //  }
+ 
+
+
 }
