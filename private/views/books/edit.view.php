@@ -26,7 +26,7 @@
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
-           <?php endif; ?>
+<?php endif; ?>
 
 
 
@@ -41,7 +41,7 @@
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
-				<?php endif;?>
+<?php endif;?>
 
 <form method = "POST"   enctype="multipart/form-data" >
 
@@ -60,6 +60,7 @@
 
 
 <input type="hidden" name="id" value="<?php echo $row['id']?>">
+
 <input type="hidden" name="pdf" value="<?php echo $row['pdf']?>">
 
 
@@ -105,13 +106,6 @@
    <a href="<?=ROOT?>/book">Cancle</a>
 <?php  endif; ?>
 </div>
-
-
-
-
-
-
-
 
 
 

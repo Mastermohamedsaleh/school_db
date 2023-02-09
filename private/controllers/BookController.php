@@ -162,8 +162,15 @@ public function display($id = null){
 
 
 // Book One Teacher
-   public function mybook($id){
+   public function mybook($id = null){
     
+   if($id !=  Auth::teacher('id')){
+       echo "NO Book Here";
+       die; 
+   }
+    
+ 
+
       $books = $this->load_model('book');
   
        $rows = $books->where('teacher_id',$id); 

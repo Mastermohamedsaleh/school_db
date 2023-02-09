@@ -38,9 +38,9 @@
 
 			<td> 
 			   
-	<a  href="classroom/edit/<?=$row['id']?>"  class="btn-sm btn btn-info text-white">Edit</a>
+	<a  href="<?=ROOT?>/classroom/edit/<?=$row['id']?>"  class="btn-sm btn btn-info text-white">Edit</a>
 
-            <a href="grade/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
+            <a href="<?=ROOT?>/grade/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
 
 
 			</td>

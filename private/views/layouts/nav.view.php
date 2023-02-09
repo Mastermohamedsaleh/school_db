@@ -99,7 +99,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link">TESTS</a>
+        <a   href="<?=ROOT?>/test" class="nav-link">TESTS</a>
       </li>
 </ul>
 
