@@ -7,12 +7,15 @@ class ProfileController extends Controller{
      
     public  function index($id = null)
     {  
-          
-      $user =  $this->load_model('User');  
+    
+       echo $id; 
+        
        
-       $rows =  $user->where('id',$id);
+      // $user =  $this->load_model('User');  
+       
+      //  $rows =  $user->where('id',$id);
 
-      return $this->view('profile',['rows'=>$rows]);
+      // return $this->view('profile',['rows'=>$rows]);
     }
     
 
@@ -43,7 +46,12 @@ class ProfileController extends Controller{
      
     return $this->view('students/profile',['rows'=>$rows]);
   }
-     
+    
+  
+  public function teacherprofile($id = null){
+
+  }
+
 
       
 }

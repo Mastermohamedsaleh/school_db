@@ -68,7 +68,32 @@ class LoginController extends Controller{
 
   public function student(){
 
-     return $this->view('login'); 
+   $errors = array();
+  
+   if(count($_POST) > 0){
+
+     $students = $this->load_model('student');
+
+     if($row = $students->findUserByEmail($_POST['email'] , $_POST['password'])){  
+                 
+      Auth::authenticatestudent($row);
+
+      $this->redirect('/home/student');
+
+     }else{
+        $errors['email'] = "Wrong email or passworrd"; 
+     }
+  }
+
+
+
+
+
+
+
+
+
+     return $this->view('logins/loginstudent',['errors'=>$errors]); 
 
   }
 

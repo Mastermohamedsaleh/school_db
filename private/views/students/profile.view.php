@@ -18,7 +18,13 @@
 			<div class="col-sm-4 col-md-3">
 				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
 				<h3 class="text-center"><?php echo $row['name_student']  ?></h3>
+				<div class="text-center">
+				<button class="btn btn-danger">Edit Image</button>
+
+				</div>
+
 			</div>
+
 			<div class="col-sm-8 col-md-9 bg-light p-2">
 				<table class="table table-hover table-striped table-bordered">
 				
@@ -32,13 +38,13 @@
 			
 					<tr><th>Date Created:</th><td><?php echo $row['dt']; ?></td></tr>
 
-					<tr><th>Action:</th><td>
+					<?php  if(Auth::logged_in_admin()): ?>	<tr>    <th>Action:</th>  <td><?php endif; ?> 
 
-
+        <?php  if(Auth::logged_in_admin()): ?>
 					<a href="<?=ROOT?>/student/edit/<?php echo $row['id'];?> " class="btn btn-info"> Edit </a> 
 					
 					<button type="button" data-bs-toggle="modal" data-bs-target="#delete<?=$row['id']?>"  class="btn btn btn-danger text-white">Delete</button>
-
+       <?php  endif; ?>
 
 <!-- Delete Modal -->
 <div class="modal fade" id="delete<?php echo $row['id'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

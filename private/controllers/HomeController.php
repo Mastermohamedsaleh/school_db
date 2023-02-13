@@ -34,6 +34,16 @@ class HomeController extends Controller{
  
       return $this->view('home');
     }
+
+
+	public function student(){
+		if(!Auth::logged_in_student())
+		{
+			$this->redirect('section');
+		}
+		
+		return $this->view('home');
+	}
     
      
 }

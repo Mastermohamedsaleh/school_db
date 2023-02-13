@@ -79,13 +79,11 @@
 
 
          
-         <?php  if(Auth::logged_in_teacher()  || Auth::logged_in_admin()   ):  ?> 
-
-
+    <?php  if(Auth::logged_in_teacher()  || Auth::logged_in_admin()  || Auth::logged_in_student()  ):  ?> 
       <li class="nav-item">
       <a class="nav-link" href="<?=ROOT?>/Book">BOOKS</a>
       </li>
-      <?php  endif; ?>
+  <?php  endif; ?>
 
 
 
@@ -98,9 +96,22 @@
       <?php  endif; ?>
 
 
+
+
+      <?php  if(Auth::logged_in_teacher()) : ?>
       <li class="nav-item">
         <a   href="<?=ROOT?>/test" class="nav-link">TESTS</a>
       </li>
+      <?php  endif; ?>
+
+      <?php  if(Auth::logged_in_student()) : ?>
+      <li class="nav-item">
+        <a   href="<?=ROOT?>/test/display/<?php  echo Auth::student('classroom_id')  ?>" class="nav-link">TESTS</a>
+      </li>
+      <?php  endif; ?>
+
+
+
 </ul>
 
 
@@ -109,11 +120,10 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
          <?php   if(  Auth::logged_in_teacher()   ){ ?>
-           
-               
              <?php  echo Auth::teacher('name') ?>
-
            <?php
+         }elseif( Auth::logged_in_student()){
+          echo Auth::student('name_student');
          }
             ?>
         <?php  echo Auth::user();  ?>
@@ -121,11 +131,63 @@
 
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+
+
+  <?php if( Auth::logged_in_student() ){  ?> 
+           
+          <a class="dropdown-item" href="<?=ROOT?>/profile/studentprofile/<?php  echo Auth::student('id') ?>" >Profile</a>
+<?php   
+
+    }elseif( 'm' == 'm' ){
+?>
           <a class="dropdown-item" href="<?=ROOT?>/profile" >Profile</a>
+
+    <?php
+    
+    }else{
+    ?>
+          <a class="dropdown-item" href="<?=ROOT?>/profile" >Profile</a>
+ 
+
+<?php  } ?>
+
+
+
+
+
+
           <a class="dropdown-item"  href="<?=ROOT?>/home">Dashboard</a>
           <div class="dropdown-divider"></div>
 
-          <a class="dropdown-item" href="<?=ROOT?>/Logout/logoutteacher" >Logout</a>
+
+
+
+          <?php if( Auth::logged_in_student() ){  ?> 
+           
+          <a class="dropdown-item" href="<?=ROOT?>/Logout/index/STUDENT" >Logout</a>
+ <?php   
+ 
+     }elseif( Auth::logged_in_teacher() ){
+ ?>
+                    <a class="dropdown-item" href="<?=ROOT?>/Logout/index/TEACHER" >Logout</a>
+
+ 
+     <?php
+     
+     }else{
+     ?>
+                 <a class="dropdown-item" href="<?=ROOT?>/Logout/index/STUDENT" >Logout</a>
+
+  
+ 
+ <?php  } ?>
+
+
+
+
+
+
+
           
 
         </div>

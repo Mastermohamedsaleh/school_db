@@ -32,6 +32,14 @@ class Auth  extends Database{
 		}
 	}
 
+    public static function logoutstudent()
+	{
+		if(isset($_SESSION['STUDENT']))
+		{
+			unset($_SESSION['STUDENT']);
+		}
+	}
+
     public static function logged_in()
 	{
 		if(isset($_SESSION['USER']))
@@ -63,6 +71,17 @@ class Auth  extends Database{
 	}
 
 
+
+   public static function logged_in_student(){
+	if(isset($_SESSION['STUDENT']))
+	{
+		return true;
+	}
+
+	return false;
+   }
+
+
 // All Item In Teacher
    public   static function  teacher($item){
 
@@ -88,7 +107,7 @@ class Auth  extends Database{
 
    public   static function  Student($item){
 
-	foreach ($_SESSION['ADMIN'] as $value    ){
+	foreach ($_SESSION['STUDENT'] as $value    ){
      
 		$row =  $value[$item];
 	 }

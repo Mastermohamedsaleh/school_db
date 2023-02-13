@@ -3,13 +3,6 @@
 
 
 
-
-
-
-
-
-
-
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 
 
@@ -19,18 +12,9 @@
 
 
 
- <?php if($tests): ?>
-
-<?php   foreach($tests as $test):  ?>
 
 
-<?php  echo $test['id']  ?>
 
-<a href="<?=ROOT?>/question/create/<?php echo $test['id'] ?>" class="btn btn-primary m-2">Add Question</a>
-
-<?php endforeach; ?>
-
-   <?php  endif; ?>
 
 
 
@@ -77,29 +61,33 @@
     Answers
   </div>
 
-  <?php     $choices =  json_decode($row['choices']);      ?>
 
-    
+
+
+
+  <form method="POST">
+
+<?php  $i = 0 ;  ?>
+  <?php  $choices =  json_decode($row['choices']);      ?>
+  <?php if($choices): ?>
+
   <ul class="list-group list-group-flush">
-   <?php if($choices): ?>
-   <?php  foreach($choices as $key => $value):   ?>
-    <li class="list-group-item"> <?=$key?> : <?=$value ?>  </li>
-   <?php   endforeach;  ?>
-   <?php  else: ?>
-      <li class="list-group-item"> No Answers Here </li>
-   <?php  endif; ?>
+  <?php  foreach($choices as $key => $value):   ?>
+
+    <li class="list-group-item"> <?=$key?> : <?=$value ?> <input type="radio" name="<?php  echo $row['id'] ?>"  value="<?php  echo $key ?>" class="float-end" style="transform:scale(1.5);cursor:pointer"> 
+
+</li>
+<?php   endforeach;  ?>
+
   </ul>
+    
+
+  <?php  else: ?>
+      <li class="list-group-item"> No Answers Here </li>
+
+
+  <?php  endif; ?>
 </div>
-
-
-<p class ="card-text"> <b>Correct Answer :</b> <?php  echo $row['correct_answer'] ?> </p>
- 
-
-<p class="card-text float-end">
-    <a href="<?=ROOT?>/question/edit/<?php echo $row['id'] ?>" class="btn-sm btn btn-warning">Edit</a>
-    <a href="<?=ROOT?>/question/delete/<?php echo $row['id'] ?>" class="btn-sm btn btn-danger">Delete</a>
-</p>
-
 
 
 
@@ -116,13 +104,7 @@
 
 
 
-
-
-
-
-
 </div>
-
 
 
 <?php  else : ?>
@@ -133,6 +115,16 @@
 
 <?php endif; ?>
 
+
+
+<div class="text-center">
+<button class="btn btn-primary shadow">Send Answers</button>
+
+</div>
+
+
+
+</form>
 
 </div>
  

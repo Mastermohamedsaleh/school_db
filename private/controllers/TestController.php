@@ -60,10 +60,6 @@ class TestController extends Controller {
 
 
   public function edit($id){
-       
-
-
-
     $classrooms = $this->load_model('Classroom');
     $classrooms = $classrooms->findAll();
     $grades = $this->load_model('Grade');
@@ -110,12 +106,24 @@ if(count($_POST) > 0){
          }       
   return $this->view('tests/delete',['rows'=>$rows]);
       
-     
-      
-      
-     
+          
   }
 
+
+
+
+//  Display Test For Student
+public function display($id){
+
+  $tests = $this->load_model('test');
+  $rows = $tests->where('classroom_id',$id);     
   
 
+  return $this->view("tests/display",['rows'=>$rows]);
+
+} 
+
+
 }
+
+
