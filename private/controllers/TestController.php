@@ -4,16 +4,20 @@
 class TestController extends Controller {
 
 
- public function index(){
+ public function index($id = null){
   
+
  $tests = $this->load_model("test");
 
- $rows = $tests->query("SELECT tests.id , tests.test , tests.dt , tests.disable ,tests.description , teachers.name ,classrooms.classroom , grades.grade FROM tests INNER JOIN   teachers ON tests.teacher_id = teachers.id INNER JOIN classrooms  ON classrooms.id = tests.classroom_id INNER JOIN grades ON tests.grade_id = grades.id ");
+ $rows = $tests->query("SELECT tests.id ,tests.classroom_id ,tests.test , tests.dt , tests.disable ,tests.description , teachers.name ,classrooms.classroom , grades.grade FROM tests INNER JOIN   teachers ON tests.teacher_id = teachers.id INNER JOIN classrooms  ON classrooms.id = tests.classroom_id INNER JOIN grades ON tests.grade_id = grades.id WHERE teacher_id = $id");
   
 
   return $this->view("tests/index",['rows'=>$rows]);
 
  }
+
+
+
 
 
 

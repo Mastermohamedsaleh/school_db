@@ -27,11 +27,7 @@
       <li class="nav-item active">
         <a class="nav-link active"  href="<?=ROOT?>/home" >DASHBOARD</a>
       </li>
-
    <?php endif; ?>
-
-
-
 
 
       <li class="nav-item dropdown">
@@ -100,7 +96,7 @@
 
       <?php  if(Auth::logged_in_teacher()) : ?>
       <li class="nav-item">
-        <a   href="<?=ROOT?>/test" class="nav-link">TESTS</a>
+        <a   href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>" class="nav-link">TESTS</a>
       </li>
       <?php  endif; ?>
 

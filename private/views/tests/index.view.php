@@ -51,6 +51,11 @@
 
             <a href="<?=ROOT?>/test/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
 
+            
+	
+	  <a href="<?=ROOT?>/studentclass/index/<?=$row['classroom_id']?>/<?=$row['id']?>" class="btn-sm btn btn-warning text-white" >Student</a>
+			
+
 
 			</td>
 
