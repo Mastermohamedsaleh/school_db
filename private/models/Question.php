@@ -18,6 +18,11 @@ class Question extends Model{
             $this->errors['dt'] = "Please add The Date";
         }
 
+        if(empty($DATA['point'])  || preg_match("/[^0-9]/",$DATA['point'])   )
+        {
+            $this->errors['point'] = "Please add  Point";
+        }
+
         //check for multiple choice answers
         $num = 0;
         $letters = ['A','B','C','D','F','G','H','I','J'];

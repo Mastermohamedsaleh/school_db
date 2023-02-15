@@ -28,9 +28,7 @@
 
 <a href="<?=ROOT?>/question/create/<?php echo $test['id'] ?>" class="btn btn-primary m-2">Add Question</a>
 
-<?php endforeach; ?>
 
-   <?php  endif; ?>
 
 
 
@@ -96,14 +94,13 @@
  
 
 <p class="card-text float-end">
-    <a href="<?=ROOT?>/question/edit/<?php echo $row['id'] ?>" class="btn-sm btn btn-warning">Edit</a>
+    <a href="<?=ROOT?>/question/edit/<?php echo $row['id'] ?>/<?php echo $test['id'] ?>" class="btn-sm btn btn-warning">Edit</a>
     <a href="<?=ROOT?>/question/delete/<?php echo $row['id'] ?>" class="btn-sm btn btn-danger">Delete</a>
 </p>
 
 
 
 
-
 </div>
 
 
@@ -111,6 +108,10 @@
 </div>
 
 </div>
+
+<?php endforeach; ?>
+
+   <?php  endif; ?>
 
 <?php   endforeach; ?>
 

@@ -21,6 +21,11 @@
   
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+
+
+
+  
+
     <?php  if( Auth::logged_in_admin()   ):  ?>
 
       <?php  if(Auth::logged_in_teacher()  || Auth::logged_in_admin()   ):  ?> 
@@ -29,6 +34,7 @@
       </li>
    <?php endif; ?>
 
+  
 
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="staff" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -134,9 +140,10 @@
           <a class="dropdown-item" href="<?=ROOT?>/profile/studentprofile/<?php  echo Auth::student('id') ?>" >Profile</a>
 <?php   
 
-    }elseif( 'm' == 'm' ){
+    }elseif(  Auth::logged_in_teacher()){
 ?>
-          <a class="dropdown-item" href="<?=ROOT?>/profile" >Profile</a>
+          <a class="dropdown-item" href="<?=ROOT?>/profile/teacherprofile/<?php  echo Auth::teacher('id') ?>" >Profile</a>
+       
 
     <?php
     
@@ -151,11 +158,11 @@
 
 
 
-
+<?php if( Auth::logged_in_admin() ):  ?> 
           <a class="dropdown-item"  href="<?=ROOT?>/home">Dashboard</a>
           <div class="dropdown-divider"></div>
 
-
+<?php  endif; ?>
 
 
           <?php if( Auth::logged_in_student() ){  ?> 

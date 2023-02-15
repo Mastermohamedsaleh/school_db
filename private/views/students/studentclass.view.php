@@ -13,6 +13,7 @@
 		      </th><th>#</th><th>Name</th><th>Action</th>
 					
 				</tr>
+		
 				<?php if($rows):?>
 			 <?php  $i = 0;  ?>		 
 			 <?php foreach ($rows as $row):?>
@@ -29,6 +30,10 @@
 
 
 
+	 
+	<a  href="<?=ROOT?>/mark/edit/<?php  $mark['id'] ?>"  class="btn-sm btn btn-primary text-white">Edit Mark</a>
+
+
 			</td>
 
 						</tr>
@@ -38,6 +43,7 @@
 	 			<?php else:?>
 	 				<h4>No Student were found at this time</h4>
 	 			<?php endif;?>
+			
 
 			</table>
 

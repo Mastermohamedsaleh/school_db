@@ -15,6 +15,27 @@
 
 <h3 class="text-center text-primary">All Answer</h3>
 
+<?php if($before): ?>
+  <div class="alert alert-danger alert-dismissible fade show p-1" role="alert">
+				  <strong><?php  echo $before;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </span>
+				</div>
+<?php endif; ?>
+
+<?php  if($success): ?>
+           <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
+				  <strong><?php  echo $success;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </span>
+				</div>
+           <?php endif; ?>
+
+
+
+
 
 <?php if(count($errors) > 0):?>
 				<div class="alert alert-warning alert-dismissible fade show p-1" role="alert">
@@ -22,7 +43,7 @@
 				   <?php foreach($errors as $error):?>
 				  	<br><?=$error?>
 				  <?php endforeach;?>
-				  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+				  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>

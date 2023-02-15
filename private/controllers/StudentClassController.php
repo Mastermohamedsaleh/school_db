@@ -22,17 +22,15 @@ class StudentClassController extends Controller {
 
 
 
-
-  
-
-
     $students =  $this->load_model('Student');
+
+
 
     $rows  = $students->where('classroom_id',$classroom_id);
     
 
 
-   return $this->view('students/studentclass',['rows' => $rows , 'test_id' => $test_id ]); 
+   return $this->view('students/studentclass',['rows' => $rows , 'test_id' => $test_id  ]); 
 
 
      

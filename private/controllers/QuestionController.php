@@ -10,12 +10,13 @@ class QuestionController extends Controller {
      
         $questions = $this->load_model("question");
 
+        $rows =   $questions->where("test_id",$id);
+
         $tests = $this->load_model("test");
   
          $tests = $tests->where('id',$id);
         
         
-        $rows =   $questions->where("test_id",$id);
    
 
                
@@ -66,21 +67,84 @@ class QuestionController extends Controller {
 
      public function edit($id = null){
      
-      $tests = $this->load_model("test");
-  
-      $tests = $tests->findAll();
+
+       $id = explode('/',$id);
+       $question_id = $id[0];
+       @$test_id = $id[1];
+
+        
+       if(!isset($test_id)  && empty($test_id)  ||   !isset( $question_id)  && empty( $question_id) ){
+        return $this->view('404');
+      }
  
 
-        return $this->view("questions/edit",['tests' => $tests ]);
+
+       $questions = $this->load_model("question");
+
+       $rows =   $questions->where("id" ,   $question_id );
+
+ $errors = array();
+ $success = array();
  
+       if(count($_POST) > 0){
+      
+        if($questions->validate($_POST)){
+          $arr = [];
+          $num =  0;
+          $letters = ['A','B','C','D','F','G','H','I','J']; 
+         foreach($_POST as $key => $value){
+             
+            if(strstr($key, 'choice')){
+              $arr[$letters[$num]] = $value;
+              unset($_POST[$key]);
+              $num++;       
+            } 
+             
+         }
+ 
+           $_POST['choices']   =    json_encode($arr);
+  
+           $questions->update($question_id,$_POST);
+ 
+            $success = "Update Success";
+       }else{
+         $errors = $questions->errors;
+       }
+          
+
+  
+
+ 
+
+
+
+       }
+
+
+
+       return $this->view("questions/edit",['rows'=>$rows , 'test_id' =>$test_id , 'errors' => $errors , 'success'=> $success] );
+  
         
-       
      }
 
 
 
 
 
+
+  public function delete($id = null){
+    $questions = $this->load_model("Question");
+    if(count($_POST) > 0){
+
+      $questions->delete($id); 
+        
+   }
+
+   $rows =  $questions->where('id',$id);
+   
+   return $this->view('questions/delete',['rows'=>$rows] );
+  }
+ 
 
 
 

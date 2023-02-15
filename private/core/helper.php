@@ -30,3 +30,24 @@ function get_image($image , $gender = 'male'){
        }
        return $image;
 }
+
+
+
+// function errors($errors){
+    
+//  if(  isset($errors)  && count($errors) > 0):
+//   echo ' <div class="alert alert-warning alert-dismissible fade show p-1" role="alert">
+//       <strong>Errors:</strong>';
+//      foreach($errors as $error):
+//         $error;
+//      endforeach;
+//     echo  '<span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+//         <span aria-hidden="true">&times;</span>
+//       </span>
+//     </div>';
+//      endif;
+
+//  return $error;
+  
+
+// }

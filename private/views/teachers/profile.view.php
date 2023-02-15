@@ -18,6 +18,11 @@
 			<div class="col-sm-4 col-md-3">
 				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
 				<h3 class="text-center"><?php echo $teacher['name']  ?></h3>
+				<div class="text-center">
+				<button class="btn btn-danger">Edit Image</button>
+
+				</div>
+
 			</div>
 			<div class="col-sm-8 col-md-9 bg-light p-2">
 				<table class="table table-hover table-striped table-bordered">
@@ -26,7 +31,12 @@
 					<tr><th>Gender:</th><td><?php echo $teacher['gender']; ?></td></tr>
 					<tr><th>Email:</th><td><?php echo $teacher['email']; ?></td></tr>
 					<tr><th>specialization:</th><td><?php echo $teacher['name_specialization']; ?></td></tr>
+					<?php  if(Auth::logged_in_admin()): ?>
 					<tr><th>Action:</th>
+
+
+
+           
 
 					<td>
 					 <a href="<?=ROOT?>/teacher/edit/<?php echo $teacher['id'];?> " class="btn btn-info"> Edit </a> 
@@ -34,6 +44,8 @@
 					<button type="button" data-bs-toggle="modal" data-bs-target="#delete<?=$teacher['id']?>"  class="btn btn btn-danger text-white">Delete</button>
 				
 				</td>
+          <?php endif; ?>
+
 			</tr>
 				
 				

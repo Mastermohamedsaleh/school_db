@@ -15,6 +15,10 @@ class HomeController extends Controller{
 
       if(!Auth::logged_in_admin())
 		{
+         
+ 
+
+			 
 			$this->redirect('section');
 		}
 
@@ -29,6 +33,9 @@ class HomeController extends Controller{
     public function teacher(){
       if(!Auth::logged_in_teacher())
 		{
+
+			 Auth::logoutteacher(); 
+
 			$this->redirect('section');
 		}
  

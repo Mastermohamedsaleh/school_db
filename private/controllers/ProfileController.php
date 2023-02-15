@@ -50,6 +50,27 @@ class ProfileController extends Controller{
   
   public function teacherprofile($id = null){
 
+        
+      
+    $rows = $this->load_model('Student');
+  
+    $teachers = $rows->query("SELECT 
+    teachers.id , teachers.name  , teachers.email , teachers.gender , teachers.image , specializations.name_specialization
+  
+     FROM teachers 
+     
+     INNER JOIN 
+     specializations
+      ON
+    teachers.specialization_id = specializations.id 
+
+   WHERE teachers.id = :id
+   
+      " , ['id' => $id]); 
+     
+      
+    return $this->view('teachers/profile',['teachers'=>$teachers]);
+     
   }
 
 
