@@ -10,7 +10,7 @@ class BookController extends Controller{
 
    $rows =  $books->query("SELECT books.id , books.name_book , grades.grade , classrooms.classroom , teachers.name FROM books INNER JOIN grades ON books.grade_id = grades.id INNER JOIN 
 
-   classrooms ON books.classroom_id = classrooms.id INNER JOIN teachers
+     classrooms ON books.classroom_id = classrooms.id INNER JOIN teachers
       
      ON   books.teacher_id = teachers.id ");
 
@@ -19,6 +19,22 @@ class BookController extends Controller{
    return $this->view('books/index',['rows'=>$rows]);
 
    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    public function create(){
   
@@ -32,6 +48,7 @@ class BookController extends Controller{
    
    $errors = array();
    $success = array();
+   $errorsfile = "";
  
    if(count($_POST) > 0){
       $books = $this->load_model('book');
@@ -40,25 +57,78 @@ class BookController extends Controller{
     
       if(count( $_FILES ) > 0 ){
        
+       
+
+
+
+    if( $_FILES['file']['size'] < 10 * 1024 * 1024 * 1024){
+      
+          
+      
+      $file_extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION); 
+        
+      $type =  array('txt', 'pdf', 'doc');
+
+      if (   in_array(     $file_extension , $type  ) ) {
+        
+
+
          $title = $_POST['name_book'];
 
-         $pname =  rand(1000,10000) . '_' . $_FILES['file']['name'];
+         $pname =  rand(1000,100000) . '_' . $_FILES['file']['name'];
       
          $tname = $_FILES['file']['tmp_name'];
       
+
+         $typefile = $_FILES['file']['type'];
          $uploads_dir = $_SERVER['DOCUMENT_ROOT'] ."/books" ;
       
          move_uploaded_file($tname , $uploads_dir . '/' . $pname);
  
+     
+
        $data['name_book'] = $_POST['name_book'];        
        $data['pdf'] =  $pname;                
        $data['grade_id'] = $_POST['grade_id'];        
-       $data['teacher_id'] = $_POST['teacher_id'];        
+       $data['teacher_id'] = Auth::teacher('id');        
        $data['classroom_id'] = $_POST['classroom_id'];        
  
-       $success = "ADD SUCCESS";   
+     
        $books->insert($data);
-          
+
+
+        
+      return $this->redirect("mybook/index/".Auth::teacher('id'))  ; 
+    
+   
+    
+      } else {
+         $errorsfile = "Put txt OR pdf OR doc";
+     }
+         
+ 
+
+
+ 
+       
+        
+       
+ 
+
+    }else{
+      $errorsfile = "Please Put Size Less"; 
+    }
+ 
+
+
+      
+     
+      
+
+
+     
+
+       
       }
    } else{
     $errors  =  $books->errors;
@@ -66,8 +136,12 @@ class BookController extends Controller{
 
    }
 
-      return $this->view('books/create',['grades'=>$grades , 'classrooms'=>$classrooms , 'errors'=>$errors , 'success'=>$success]);
+      return $this->view('books/create',['grades'=>$grades , 'classrooms'=>$classrooms , 'errors'=>$errors ,  'errorsfile'=>$errorsfile ]);
    }
+
+
+
+
 
 
 // Edit
@@ -85,6 +159,7 @@ class BookController extends Controller{
 
       $errors = array();
       $success = array();
+      $errorsfile = "";
   
     if(count($_POST) > 0){
     
@@ -93,25 +168,62 @@ class BookController extends Controller{
      
        if(count( $_FILES ) > 0 ){
         
-          $title = $_POST['name_book'];
- 
-          $pname =  rand(1000,10000) . '_' . $_FILES['file']['name'];
-       
-          $tname = $_FILES['file']['tmp_name'];
-       
-          $uploads_dir = $_SERVER['DOCUMENT_ROOT'] ."/books" ;
-       
-          move_uploaded_file($tname , $uploads_dir . '/' . $pname);
-  
-        $data['name_book'] = $_POST['name_book'];        
-        $data['pdf'] =  $pname;                
-        $data['grade_id'] = $_POST['grade_id'];        
-        $data['teacher_id'] = $_POST['teacher_id'];        
-        $data['classroom_id'] = $_POST['classroom_id'];        
-  
-        $success = "Update SUCCESS";   
-        $books->update($id,$data);
+       if($_FILES['file']['tmp_name'] != ""){
            
+            
+         if( $_FILES['file']['size'] < 10 * 1024 * 1024 * 1024){ 
+
+
+            $file_extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION); 
+        
+            $type =  array('txt', 'pdf', 'doc');
+      
+            if ( in_array(  $file_extension , $type  ) ) {
+               
+
+               $filename = $_SERVER['DOCUMENT_ROOT']."/books"."/".$_POST['oldfile'];
+
+               if(file_exists($filename)){
+                  unlink($filename);
+               }
+
+
+               $title = $_POST['name_book'];
+ 
+               $pname =  rand(1000,10000) . '_' . $_FILES['file']['name'];
+            
+               $tname = $_FILES['file']['tmp_name'];
+            
+               $uploads_dir = $_SERVER['DOCUMENT_ROOT'] ."/books" ;
+            
+               move_uploaded_file($tname , $uploads_dir . '/' . $pname);
+       
+             $data['name_book'] = $_POST['name_book'];        
+             $data['pdf'] =  $pname;                
+             $data['grade_id'] = $_POST['grade_id'];        
+             $data['teacher_id'] = Auth::teacher('id');        
+             $data['classroom_id'] = $_POST['classroom_id'];        
+       
+             $success = "Update SUCCESS";   
+             $books->update($id,$data);
+
+            }else{
+               $errorsfile = "Put txt OR pdf OR doc";
+            } 
+         }else{
+         $errorsfile = "Please Put Size Less";
+       }
+           }else{
+            $data['name_book'] = $_POST['name_book'];        
+            $data['pdf'] =  $_POST['oldfile'];                
+            $data['grade_id'] = $_POST['grade_id'];        
+            $data['teacher_id'] = Auth::teacher('id');        
+            $data['classroom_id'] = $_POST['classroom_id'];
+
+            $success = "Update SUCCESS";   
+            $books->update($id,$data);
+
+           }     
        }
     } else{
      $errors  =  $books->errors;
@@ -119,7 +231,7 @@ class BookController extends Controller{
  
     }
  
-       return $this->view('books/edit',['rows'=>$rows,'grades'=>$grades , 'classrooms'=>$classrooms , 'errors'=>$errors , 'success'=>$success]);
+       return $this->view('books/edit',['rows'=>$rows,'grades'=>$grades , 'classrooms'=>$classrooms , 'errors'=>$errors ,'errorsfile'=>$errorsfile , 'success'=>$success]);
 
 
  
@@ -161,22 +273,6 @@ public function display($id = null){
 
 
 
-// Book One Teacher
-   public function mybook($id = null){
-    
-   if($id !=  Auth::teacher('id')){
-       echo "NO Book Here";
-       die; 
-   }
-    
- 
-
-      $books = $this->load_model('book');
-  
-       $rows = $books->where('teacher_id',$id); 
-       return $this->view("books/mybook",['rows'=> $rows]); 
-       
-   }
 
 
     

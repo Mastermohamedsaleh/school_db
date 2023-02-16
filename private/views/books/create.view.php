@@ -12,14 +12,26 @@
  <img src="<?=ROOT?>/logo.png"  class="shadow d-block mx-auto border border-primary  rounded-circle"   style="width:100px;margin-bottom:10px" alt="Logo"> 
 
 
- <?php  if($success): ?>
-           <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
-				  <strong><?php  echo $success;  ?>:</strong>
-                  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+
+
+
+
+
+ <?php if( $errorsfile ): ?>
+  <div class="alert alert-danger alert-dismissible fade show p-1" role="alert">
+				  <strong><?php  echo $errorsfile;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
-           <?php endif; ?>
+<?php endif; ?>
+
+
+
+
+
+  
+		    
 
 
 
@@ -30,7 +42,7 @@
 				   <?php foreach($errors as $error):?>
 				  	<br><?=$error?>
 				  <?php endforeach;?>
-				  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+				  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
@@ -45,7 +57,7 @@
 
 
 <!-- I will Remove Teacher id -->
-<input type="text" name="teacher_id" value="1">
+<!-- <input type="text" name="teacher_id" value="1"> -->
 
 
 <h5>Pdf:</h5>

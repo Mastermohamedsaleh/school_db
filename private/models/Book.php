@@ -12,9 +12,15 @@ class Book extends Model{
             $this->errors[] = "Only Letter Can Write In Name Book"; 
            } 
 
-        // if(empty($data['file']) || !preg_match("/^%PDF-/",$data['file'])){
+        // if(empty($data['file']) ){
         //     $this->errors[] = "Book Must Be Pdf"; 
-        //    } 
+        // } 
+
+        // $file =    $_FILES['file'] ;
+        // $data['file']   == $_FILES['file']['type'];
+        // if(      isset( $data['file']  )  &&  !$data['file']  == 'pdf' ){
+        //     $this->errors[] = "Book Must Be Pdf";      
+        // }
            
 
         if(empty($data['grade_id']) ){

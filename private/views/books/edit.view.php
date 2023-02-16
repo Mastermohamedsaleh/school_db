@@ -22,12 +22,21 @@
  <?php  if($success): ?>
            <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
 				  <strong><?php  echo $success;  ?>:</strong>
-                  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
 <?php endif; ?>
 
+
+<?php if( $errorsfile ): ?>
+  <div class="alert alert-danger alert-dismissible fade show p-1" role="alert">
+				  <strong><?php  echo $errorsfile;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </span>
+				</div>
+<?php endif; ?>
 
 
 
@@ -51,23 +60,22 @@
 <input type="text" name="name_book" class="form-control mb-2"  value="<?php echo $row['name_book'] ?>" placeholder = "Name Book"  >
 
 
-<!-- I will Remove Teacher id -->
-<input type="text" name="teacher_id" value="1">
+
 
 
 <h5>Pdf:</h5>
-<input type="file" name="file" class="form-control mb-2" placeholder = "Pdf" >
+<input type="file" name="file" class="form-control mb-2"  >
 
 
 <input type="hidden" name="id" value="<?php echo $row['id']?>">
 
-<input type="hidden" name="pdf" value="<?php echo $row['pdf']?>">
+<input type="hidden" name="oldfile" value="<?php echo $row['pdf']?>">
 
 
 <h5>Grade:</h5>
 <select name="grade_id" class="form-control mb-2" >
 <?php  foreach($grades as $grade): ?>
-    <option value="<?php   if( $grade['id']  == $row['grade_id'] ){ echo 'selected';}   echo $grade['id']  ?>"><?php echo $grade['grade'] ?></option>
+    <option value="<?php  echo $grade['id']  ?>"><?php echo $grade['grade'] ?></option>
     <?php  endforeach; ?>
 </select> 
 
@@ -76,7 +84,7 @@
 <h5>Classroom:</h5>
 <select name="classroom_id" class="form-control mb-2">
 <?php  foreach($classrooms as $classroom): ?>
-    <option value="<?php   if($classroom['id'] == $row['classroom_id']){ echo "selected";}   echo $classroom['id'] ?>"><?php echo $classroom['classroom'] ?></option>
+    <option value="<?php  echo $classroom['id'] ?>"><?php echo $classroom['classroom'] ?></option>
     <?php  endforeach; ?>
 </select>
 

@@ -27,7 +27,6 @@
   
 
     <?php  if( Auth::logged_in_admin()   ):  ?>
-
       <?php  if(Auth::logged_in_teacher()  || Auth::logged_in_admin()   ):  ?> 
       <li class="nav-item active">
         <a class="nav-link active"  href="<?=ROOT?>/home" >DASHBOARD</a>
@@ -92,7 +91,7 @@
       <?php  if(Auth::logged_in_teacher()) : ?>
 
       <li class="nav-item">
-          <a class="nav-link" href="<?=ROOT?>/Book/mybook/<?php echo Auth::teacher('id') ?>">My BOOKS</a>
+          <a class="nav-link" href="<?=ROOT?>/mybook/index/<?php echo Auth::teacher('id') ?>">My BOOKS</a>
       </li>
 
       <?php  endif; ?>
