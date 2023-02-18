@@ -18,9 +18,11 @@ class LoginController extends Controller{
 
     if(count($_POST) > 0){
 
-       $user = $this->load_model('user');
+       $admin = $this->load_model('admin');
 
-       if($row = $user->findUserByEmail($_POST['email'] , $_POST['password'])){  
+
+
+       if($row = $admin->findUserByEmail($_POST['email'] , $_POST['password'])){  
                    
         Auth::authenticateadmin($row);
 
@@ -59,11 +61,7 @@ class LoginController extends Controller{
  
    }
 
-  public function admin(){
 
-     return $this->view('login'); 
-
-  }
 
 
   public function student(){

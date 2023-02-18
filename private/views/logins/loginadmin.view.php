@@ -11,7 +11,7 @@
     My School   
   </h2>
 
-  <img src="<?=ROOT?>/public/logo.png"  class="shadow d-block mx-auto border border-primary  rounded-circle"   style="width:100px;margin-bottom:10px" alt="Logo"> 
+  <img src="<?=ROOT?>/assets/logo.png"  class="shadow d-block mx-auto border border-primary  rounded-circle"   style="width:100px;margin-bottom:10px" alt="Logo"> 
 
 
 

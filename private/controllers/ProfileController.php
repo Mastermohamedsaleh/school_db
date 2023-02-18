@@ -5,18 +5,18 @@
 
 class ProfileController extends Controller{
      
-    public  function index($id = null)
-    {  
-    
-       echo $id; 
-        
-       
-      // $user =  $this->load_model('User');  
-       
-      //  $rows =  $user->where('id',$id);
+public function adminprofile($id){
+  $rows = $this->load_model('admin');     
+  $rows = $rows->where('id',$id);
+  
+   
+  return $this->view('admins/profile',['rows'=>$rows]);
+ 
 
-      // return $this->view('profile',['rows'=>$rows]);
-    }
+
+}
+
+
     
 
   public function studentprofile($id){

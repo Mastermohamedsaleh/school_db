@@ -54,7 +54,7 @@
 
 
 
-<h5>Grade:</h5>
+<h5>Student:</h5>
 <select name="student_id" class="form-control mb-2" >
 <?php  foreach($students as $student): ?>
     <option value="<?php echo $student['id'] ?>"><?php echo $student['name_student'] ?></option>

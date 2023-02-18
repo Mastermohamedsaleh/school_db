@@ -8,6 +8,8 @@
     background:#e8eaf7  !important;
   }
 </style>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
   	<a class="navbar-brand" href="#">
       <img src="<?=ROOT?>/logo.png" class="" style="width:50px;">
@@ -41,7 +43,14 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="staff">
             <li><a class="dropdown-item" href="<?=ROOT?>/Teacher">TEACHERS</a></li> 
+         
+ 
+        
             <li><a class="dropdown-item" href="<?=ROOT?>/admin">ADMINS</a></li>
+            
+
+
+
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -127,7 +136,7 @@
           echo Auth::student('name_student');
          }
             ?>
-        <?php  echo Auth::user();  ?>
+        <?php  echo Auth::admin('name_admin');  ?>
         </a>
 
 
@@ -148,7 +157,7 @@
     
     }else{
     ?>
-          <a class="dropdown-item" href="<?=ROOT?>/profile" >Profile</a>
+          <a class="dropdown-item" href="<?=ROOT?>/profile/adminprofile/<?php   echo Auth::admin('id') ?>" >Profile</a>
  
 
 <?php  } ?>
@@ -178,7 +187,7 @@
      
      }else{
      ?>
-                 <a class="dropdown-item" href="<?=ROOT?>/Logout/index/STUDENT" >Logout</a>
+                 <a class="dropdown-item" href="<?=ROOT?>/Logout/index/ADMIN" >Logout</a>
 
   
  

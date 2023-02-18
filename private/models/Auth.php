@@ -40,15 +40,23 @@ class Auth  extends Database{
 		}
 	}
 
-    public static function logged_in()
+    public static function logoutadmin()
 	{
-		if(isset($_SESSION['USER']))
+		if(isset($_SESSION['ADMIN']))
 		{
-			return true;
+			unset($_SESSION['ADMIN']);
 		}
-
-		return false;
 	}
+
+    // public static function logged_in()
+	// {
+	// 	if(isset($_SESSION['USER']))
+	// 	{
+	// 		return true;
+	// 	}
+
+	// 	return false;
+	// }
 
     public static function logged_in_admin()
 	{
