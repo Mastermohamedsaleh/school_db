@@ -16,11 +16,13 @@
 
 		<div class="row">
 			<div class="col-sm-4 col-md-3">
-				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
-				<h3 class="text-center"><?php echo  substr( $row['name_admin'] ,0 , 20 ) ?></h3>
+				<img src="<?php $_SERVER['DOCUMENT_ROOT']?>/uploads/<?php  echo $image ?>" class="border d-block mx-auto  " style="width:150px;">
+				<h3 class="text-center"><?php echo  substr( $row['name_admin'] ,0 , 14 ) ?></h3>
 				<div class="text-center">
 
             <a href="<?=ROOT?>/Profiledit/editadmin/<?php echo $row['id'] ?>">
+			
+			<a href="<?=ROOT?>/Changepassword/adminpass/<?php  echo $row['id']?>" class="btn-sm btn btn-success" >Change Password</a>
                <button class="btn-sm btn btn-danger">Edit Profile</button>
             </a>
 
@@ -33,6 +35,7 @@
 					<tr><th>Name:</th><td><?php echo $row['name_admin']; ?></td></tr>
 					<tr><th>Gender:</th><td><?php echo $row['gender']; ?></td></tr>
 					<tr><th>Email:</th><td><?php echo $row['email']; ?></td></tr>
+					
 					
 
 			</tr>

@@ -2,8 +2,7 @@
 <?php $this->view('layouts/nav')?>
 
 	
-
-	<div class="container">
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 
 
 
@@ -11,12 +10,6 @@
 
 
 
-   <div class="row">
-
-
-
-
-<div class="col">
 
 
 
@@ -94,15 +87,6 @@
 
 
 
-<!-- End Col -->
-</div>
-
-
-
-
-   
-<!-- End Row -->
-   </div>
 
 
 

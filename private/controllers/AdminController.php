@@ -133,4 +133,19 @@ class AdminController extends Controller {
  
 
 
+
+
+
+
+// Test Api
+public function api(){
+   return $this->view("api");
+}
+
+
+
+
+
+
+
 } 

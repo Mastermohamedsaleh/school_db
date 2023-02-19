@@ -20,13 +20,15 @@ function get_select($key,$value){
 }
 
 function get_image($image , $gender = 'male'){
-    if(!file_exists($image)){
+    if(  empty($image) ){
         $image = ROOT.'/assets/user_male.jpg'; 
 
              if($gender == "female"){
                 $image = ROOT.'/assets/user_female.jpg'; 
              }
      
+       }else{
+          $image =   $image;
        }
        return $image;
 }
