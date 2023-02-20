@@ -32,6 +32,45 @@ class GradeController extends Controller{
     }
 
 
+
+
+  public function create(){
+
+        
+    if(!Auth::logged_in_admin())
+    {
+        $this->redirect('section');
+    }
+  
+  
+    $grades  =  $this->load_model('Grade');
+  
+     $errors = array();
+     $success = array();
+  
+     if(count($_POST) > 0){
+        
+        if($grades->validate($_POST)){
+
+        $arr['dt'] = date('Y-m-d');
+        $arr['grade'] = $_POST['grade'];
+            
+           $grades->insert($arr);
+           $success = "Add Success"; 
+
+      }else{
+       $errors = $grades->errors;
+      }
+     } 
+  
+    
+
+  return $this->view("grades/add", ['errors'=>$errors ,'success'=>$success]);
+ } 
+
+
+
+
     public function edit($id = null){
 
               
@@ -51,23 +90,25 @@ class GradeController extends Controller{
              
            
            $grades->update($id,$_POST);  
-            
+  
            $success = "Update Success";
-
            
         }else{
           $errors = $grades->errors;
         }
 
-          
 
-         
- 
-
-       return $this->view('grades/index' ,['errors'=>$errors , 'success'=>$success , 'rows' => $rows]);
- 
-         
+       return $this->view('grades/edit' ,['errors'=>$errors , 'success'=>$success , 'rows' => $rows]);
+     
     }
+
+
+
+
+
+
+
+
 
     public function delete($id = null){
               
@@ -75,7 +116,24 @@ class GradeController extends Controller{
     {
         $this->redirect('section');
     }
-      echo $id;
+      
+    $grades = $this->load_model("Grade");
+
+    $rows = $grades->where('id',$id); 
+  if(count($_POST) > 0){
+
+    $grades->delete($id);
+
+  }
+ 
+
+
+    // $students->delete($id);
+
+    return $this->view("grades/delete",['rows'=>$rows]);
+ 
+ 
+
     }
  
 

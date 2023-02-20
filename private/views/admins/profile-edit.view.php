@@ -58,7 +58,7 @@
 		<form method="post" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-sm-4 col-md-3">
-			<img src="<?php $_SERVER['DOCUMENT_ROOT']?>/uploads/<?php  echo $image ?>" class="	 border d-block mx-auto " style="width:150px;">
+			<img src="<?php  echo $image ?>" class="	 border d-block mx-auto " style="width:150px;">
 
  				<br>
 			
@@ -81,8 +81,6 @@
             <input type="hidden"  name="oldpassword"  value="<?php echo $row['password'] ?>">
                 
 
-			<input class="my-2 form-control" value="<?=get_var('password')?>" type="text" name="password" placeholder="Password">
-			<input class="my-2 form-control" value="<?=get_var('password2')?>" type="text" name="password2" placeholder="Retype Password">
                         <input type="file" name="newimage" class="form-control"> 
 
 						<br>

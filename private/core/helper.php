@@ -28,7 +28,7 @@ function get_image($image , $gender = 'male'){
              }
      
        }else{
-          $image =   $image;
+          $image =  $_SERVER['DOCUMENT_ROOT'] ."/uploads" ."/".  $image;
        }
        return $image;
 }

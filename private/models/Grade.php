@@ -16,6 +16,16 @@ class Grade  extends Model{
         if(empty($data['grade'])    ||  !preg_match("/^[a-z A-Z0-9]+$/",$data['grade'])){
             $this->errors[] = "Only Letter and Number Can Write Here"; 
         }
+
+
+        // if( isset($data['id']) ){
+            // return true;
+        //   }else{
+           if($this->where('grade', $data['grade']) ){
+             $this->errors[] = "Grade Unique"; 
+            }
+        //   }
+
         
         if(count($this->errors) == 0){
             return true;

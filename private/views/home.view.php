@@ -85,12 +85,12 @@ sssssss
     
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
         
-       <a href="" class="ff" > <i class="fa fa-user-graduate"></i> </a>
+       <a href="<?=ROOT?>/student" class="ff"> <i class="fa fa-graduation-cap"></i> </a>
    </div>
 
    <div class="card-header  text-success">
@@ -107,11 +107,11 @@ sss
     
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-chalkboard-teacher"></i> </a>
+       <a href="<?=ROOT?>/teacher" class="ff" > <i class="fa fa-chalkboard-user"></i> </a>
    </div>
 
    <div class="card-header  text-success">
@@ -129,11 +129,11 @@ sss
 
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-plus"></i> </a>
+       <a href="<?=ROOT?>/classroom" class="ff" >  <i class="fa fa-plus"></i> </a>
    </div>
 
    <div class="card-header  text-success">
@@ -165,11 +165,11 @@ Classroom
     
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-plus"></i> </a>
+       <a href="<?=ROOT?>/grade" class="ff" >  <i class="fa fa-plus"></i> </a>
    </div>
 
    <div class="card-header  text-success">

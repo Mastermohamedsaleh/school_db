@@ -7,37 +7,14 @@
 
 			<h5>Grade</h5>
 
-      <?php  if(isset($success)): ?>
-           <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
-				  <strong><?php  echo $success;  ?>:</strong>
-                  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-				    <span aria-hidden="true">&times;</span>
-				  </span>
-				</div>
-           <?php endif; ?>
-
-           <?php if(count($errors) > 0):?>
-				<div class="alert alert-warning alert-dismissible fade show p-1" role="alert">
-				  <strong>Errors:</strong>
-				   <?php foreach($errors as $error):?>
-				  	<br><?=$error?>
-				  <?php endforeach;?>
-				  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-				    <span aria-hidden="true">&times;</span>
-				  </span>
-				</div>
-				<?php endif;?>
-
-
-
-
 		<div class="card-group justify-content-center">
 			<table class="table table-striped table-hover text-center">
 				<tr><th>#</th><th>Grade</th><th>Date</th>
 					<th>
 					
-							<button type="button" data-bs-toggle="modal" data-bs-target="#addgrade"  class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
 					
+<a href="<?=ROOT?>/grade/create" class="btn-sm btn btn-primary"><i class="fa fa-plus"></i>Add New</a>
+
 					</th>
 				</tr>
 				<?php if($rows):?>
@@ -50,10 +27,12 @@
             <td><?php  echo $row['dt']; ?></td>
 
 			<td> 
-			    <?php $ee = "grade/edit/".$row['id']; ?>
-			<button type="button" data-bs-toggle="modal" data-bs-target="#edit<?=$row['id']?>"  class="btn-sm btn btn-info text-white">Edit</button>
+			
 
-            <a href="grade/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
+            <a href="<?=ROOT?>/grade/edit/<?=$row['id']?>"  class="btn-sm btn btn-info text-white" >Edit</a>
+            <a href="<?=ROOT?>/grade/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
+
+
 
 			</td>
 
@@ -77,7 +56,7 @@
       <div class="modal-body">
 
 
-<form action="<?=ROOT?>/grade/edit/<?=$row['id']?>" method="post">
+<form action="<?=ROOT?>/grade/update/<?=$row['id']?>" method="post">
 
 <h4 class="text-center">Update <?php echo $row['grade']; ?></h4>
 

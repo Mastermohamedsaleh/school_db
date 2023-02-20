@@ -57,7 +57,7 @@
 
 <div class=" col-sm-12 col-lg-4">
 
-<img src="<?php $_SERVER['DOCUMENT_ROOT']?>/uploads/<?php  echo $image ?>" class="	 border d-block mx-auto " style="width:150px;">
+<img src="<?php  echo $image ?>" class="	 border d-block mx-auto " style="width:150px;">
 
 
 </div>
