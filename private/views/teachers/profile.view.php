@@ -3,6 +3,12 @@
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 	
+
+
+
+
+
+
 		<?php  if($teachers): ?>
 	<?php	foreach($teachers as $teacher) : ?>
     
@@ -19,9 +25,11 @@
 				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
 				<h3 class="text-center"><?php echo $teacher['name']  ?></h3>
 				<div class="text-center">
-				<button class="btn btn-danger">Edit Image</button>
 
-				</div>
+				<?php  if(Auth::logged_in_teacher()): ?>
+				<button class="btn btn-danger">Edit Image</button>
+				<?php  endif;  ?>
+		</div>
 
 			</div>
 			<div class="col-sm-8 col-md-9 bg-light p-2">

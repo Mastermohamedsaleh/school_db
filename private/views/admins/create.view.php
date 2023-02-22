@@ -75,10 +75,15 @@
 
 
 
-
+<div class="mt-2">
 
 <button  type="submit" class="btn btn-outline-success">Add Admin</button>
 <a   href="<?=ROOT?>/admin" class="btn btn-outline-danger float-end">Cancle</a>
+
+
+</div>
+
+
 
 
 </form>

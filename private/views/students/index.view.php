@@ -5,21 +5,45 @@
  
 
 		<nav class="navbar navbar-light bg-light">
-		  <form class="form-inline">
+		  <form   action="<?=ROOT?>/search/students"  class="form-inline">
 		    <div class="input-group">
 		      <div class="input-group-prepend">
 		        <button class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</button>
 		      </div>
-		      <input name="find" value="<?=isset($_GET['find'])?$_GET['find']:'';?>" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+		      <input   name="find" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
 		    </div>
 		  </form>
- 			<a href="<?=ROOT?>/Singup?mode=student">
+ 			<a href="<?=ROOT?>/student/create">
 				<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
 			</a>
  		</nav>
-		 <h1 class="text-primary text-center">All Student</h1>
+
+    
+		  <div class="mt-1">
+<div class="row">
+
+<div class="col">
+<h1 class="text-primary ">All Student</h1>
+
+</div>
+
+
+<div class="col">
+<a href="<?=ROOT?>/student" class="btn btn-primary m-2 float-end">All Student</a>
+
+</div>
+
+</div>
+
+
+		  </div>
+		
 
 		<div class="card-group justify-content-center">
+
+
+		<?php if(isset($students)){  $rows = $students;  }   ?>
+
 
 			<?php if($rows):?>
 				<?php foreach ($rows as $row):?>
@@ -35,7 +59,7 @@
 					<div class="card m-2 shadow-sm" style="max-width: 12rem;min-width: 12rem;">
 	  <img src="<?=$image?>" class=" rounded-circle card-img-top w-75 d-block mx-auto mt-1" alt="Card image cap">
   <div class="card-body">
-    <center><h5 class="card-title"><?=$row['name_student']?> </h5></center>
+   <h5 class="card-title text-center"><?=$row['name_student']?> </h5>
 
     <a   href="<?=ROOT?>/profile/studentprofile/<?=$row['id']?>"   class="btn btn-primary">Profile</a>
     

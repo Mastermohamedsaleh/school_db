@@ -64,6 +64,7 @@
 
 
 <button  type="submit" class="btn btn-outline-success">Add Parent</button>
+<a href="<?=ROOT?>/myparent" class="btn btn-outline-danger float-end">Cancle</a>
 
 
 </form>

@@ -111,7 +111,7 @@ Myschool
     </div>
 
    <div class="card-body">
-       <a href="<?=ROOT?>/teacher" class="ff" > <i class="fa fa-chalkboard-user"></i> </a>
+       <a href="<?=ROOT?>/teacher" class="ff" ><i class="fa fa-user-large"></i></a>
    </div>
 
    <div class="card-header  text-success">
@@ -186,11 +186,11 @@ Myschool
     
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-plus"></i> </a>
+       <a href="<?=ROOT?>/book" class="ff" >  <i class="fa fa-plus"></i> </a>
    </div>
 
    <div class="card-header  text-success">
@@ -207,15 +207,15 @@ Library
   
  
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-plus"></i> </a>
+       <a href="<?=ROOT?>/myparent" class="ff" >  <i class="fa fa-plus"></i> </a>
    </div>
 
    <div class="card-header  text-success">
-sss
+Parents
     </div>
      
  </div>  
@@ -242,15 +242,15 @@ sss
 
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-plus"></i> </a>
+       <a href="<?=ROOT?>/admin" class="ff" >  <i class="fa fa-plus"></i> </a>
    </div>
 
    <div class="card-header  text-success">
-    Grades
+   Admins
     </div>
      
  </div>  
@@ -279,12 +279,12 @@ Library
  </div>
  <div class="col-lg-4  col-sm-12">
 
- 
+
  <div class="card shadow">
     
 
  <div class="card-header  text-success">
-sss
+Myschool
     </div>
 
    <div class="card-body">
@@ -292,7 +292,7 @@ sss
    </div>
 
    <div class="card-header  text-success">
-sss
+Settings
     </div>
      
  </div>  
@@ -322,7 +322,7 @@ sss
 
 
 
-
+<!-- For Student And Teacher -->
 
 
 

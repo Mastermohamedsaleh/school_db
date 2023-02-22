@@ -51,8 +51,7 @@
 
 
 
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+       
           </ul>
         </li>
 
@@ -81,20 +80,27 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
          <li><a href="<?=ROOT?>/classroom"  class="dropdown-item">CLASS</a></li> 
             <li><a class="dropdown-item" href="<?=ROOT?>/Teacherclassroom">Add teacher To Class</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+         
+            
           </ul>
         </li>
      <?php  endif; ?>
 
 
          
-    <?php  if(Auth::logged_in_teacher()  || Auth::logged_in_admin()  || Auth::logged_in_student()  ):  ?> 
+    <?php  if(Auth::logged_in_teacher()    || Auth::logged_in_student()  ):  ?> 
       <li class="nav-item">
       <a class="nav-link" href="<?=ROOT?>/Book">BOOKS</a>
       </li>
   <?php  endif; ?>
 
+  <?php  if( Auth::logged_in_admin()  ):  ?> 
+     
+    <li class="nav-item">
+      <a class="nav-link" href="<?=ROOT?>/setting">SETTINGS</a>
+      </li>
+      
+  <?php endif;  ?>
 
 
       <?php  if(Auth::logged_in_teacher()) : ?>

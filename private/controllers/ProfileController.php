@@ -5,13 +5,27 @@
 
 class ProfileController extends Controller{
      
-public function adminprofile($id){
+public function adminprofile($id = null){
+
+
+  if(!Auth::logged_in_admin()){
+    echo "You Are Not Admin";
+}
+
+
   $rows = $this->load_model('admin');     
   $rows = $rows->where('id',$id);
-  
-   
-  return $this->view('admins/profile',['rows'=>$rows]);
- 
+
+
+
+
+    foreach($rows as $row ){
+      if($row['id'] !=  Auth::admin('id')){
+        echo "No User Here :)";
+      }else{
+        return $this->view('admins/profile',['rows'=>$rows]);
+      }
+    }
 
 
 }

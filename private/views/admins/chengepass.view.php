@@ -68,8 +68,10 @@
 
 <form method="POST">
 
-<input class="my-2 form-control"  value="<?=get_var('password')?>"  type="password" name="oldpassword" placeholder="Password">
-<input class="my-2 form-control"  value="<?=get_var('password2')?>" type="password" name="password" placeholder="Retype Password">
+<input type="hidden" name="id" value="<?php  echo $row['id'] ?>" >
+
+<input class="my-2 form-control"  value="<?=get_var('oldpassword')?>"  type="password" name="oldpassword" placeholder="Password">
+<input class="my-2 form-control"  value="<?=get_var('password')?>" type="password" name="password" placeholder="Retype Password">
 
 <a  href = "<?=ROOT?>/profile/adminprofile/<?php echo $row['id'] ?>" class="btn-sm  btn btn-outline-danger " >Cancle</a>
 

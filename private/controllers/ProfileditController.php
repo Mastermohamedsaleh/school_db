@@ -6,6 +6,8 @@ class ProfileditController extends Controller{
 
       public function editadmin($id = null){
       
+
+  
          
         $admins = $this->load_model('admin');     
         $rows = $admins->where('id',$id);

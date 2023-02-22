@@ -55,10 +55,12 @@
 
 
              
+<div class="mt-3">
+<button type="submit"  class="btn btn-primary float-end">Edit Parent</button>
 
-			<button type="submit"  class="btn btn-primary float-end">Edit Parent</button>
-
-			<a href="<?=ROOT?>/myparent" class="btn btn-danger">Cancel</a>
+<a href="<?=ROOT?>/myparent" class="btn btn-danger">Cancel</a>
+</div>
+		
           
 				
 	

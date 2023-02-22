@@ -19,8 +19,9 @@
 				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
 				<h3 class="text-center"><?php echo $row['name_student']  ?></h3>
 				<div class="text-center">
+				<?php  if(Auth::logged_in_student()): ?>
 				<button class="btn btn-danger">Edit Image</button>
-
+                <?php  endif; ?>
 				</div>
 
 			</div>

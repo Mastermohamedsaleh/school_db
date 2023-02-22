@@ -11,7 +11,10 @@
     My School   
   </h2>
 
-  <img src="<?=ROOT?>/assets/logo.png"  class="shadow d-block mx-auto border border-primary  rounded-circle"   style="width:100px;margin-bottom:10px" alt="Logo"> 
+
+
+
+  <img src="<?=ROOT?>/logo.png"  class="shadow d-block mx-auto border border-primary  rounded-circle"   style="width:100px;margin-bottom:10px" alt="Logo"> 
 
 
 
@@ -34,7 +37,7 @@
 			<br>
 			<input class="form-control" value="<?=get_var('password')?>" type="password" name="password" placeholder="Password">
 			<br>
-			<button class="btn btn-primary">Login</button>
+<button class="btn btn-success">Login</button>
 
  
    

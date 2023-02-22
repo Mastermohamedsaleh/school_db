@@ -138,6 +138,15 @@ class Model extends Database{
     
     }
 
+//     Search
+
+    public function search($key , $search){
+     $query =  "SELECT * FROM $this->table WHERE  $key LIKE '%$search%' ";
+
+       
+
+     return  $this->query($query);
+    }
 
 
 

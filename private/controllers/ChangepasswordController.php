@@ -11,6 +11,9 @@ class ChangepasswordController extends Controller{
 
      $rows  = $admins->where('id' , $id);
 
+
+
+
      $success = array();
    
       $errors = array();
@@ -24,22 +27,28 @@ class ChangepasswordController extends Controller{
   foreach($rows as $row){
 
 
-    if(  $row['password']   == sha1($_POST['oldpassword']) ){
-    if($admins->validate($_POST['password'])){
-        
-      $admins->update($id, sha1( $_POST['password'] ));
-      $success = "Update Success";
-       
-    }else{
-     $errors = $admins->errors;
-    }  
-
-    }else{
-      $errorpassword = "Write old Password";
-    }
+     $password = $row['password'];
 
 
   }
+
+  echo $password;
+
+  if(  $password  == sha1($_POST['oldpassword']) ){
+    // if($admins->validate($_POST['password'])){
+        
+      $admins->update($id, sha1($_POST['password']));
+      $success = "Update Success";
+     
+       
+    // }else{
+    //  $errors = $admins->errors;
+    // }  
+
+    }else{
+      $errorpassword = "Write old Password";
+      
+    }
     
 
 

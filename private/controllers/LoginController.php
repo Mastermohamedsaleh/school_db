@@ -32,7 +32,7 @@ class LoginController extends Controller{
           $errors['email'] = "Wrong email or passworrd"; 
        }
     }
-      return $this->view('login',['errors'=>$errors]);
+      return $this->view('logins/loginadmin',['errors'=>$errors]);
     }  
 
 

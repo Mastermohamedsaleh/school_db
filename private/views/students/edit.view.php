@@ -80,7 +80,7 @@
 
 
 			<a  href="<?=ROOT?>/profile/studentprofile/<?php echo $row['id'] ?>" >
-		<button type="button"  class="btn btn-danger float-start">Cancle</button>	
+		<button type="button"  class="btn btn-danger">Cancle</button>	
 		
 		</a>
              

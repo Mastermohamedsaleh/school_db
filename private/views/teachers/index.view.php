@@ -12,31 +12,29 @@
 
 
 
+	<a href="<?=ROOT?>/teacher" class="btn btn-primary m-2 float-end">All Teacher</a>
 
 
 
-  <form action="" class="continer" style="width:200px">
+  <form action="<?=ROOT?>/search/teachers" class="continer" style="width:200px">
 
 <div class="row">
 
 
 <div class="col">
-
-
 <input type="text" name="search" class="form-control" placeholder="Search Teacher">
-  <button class="btn btn-primary m-2">search</button>
-
-
-
+<button class="btn btn-primary m-2">search</button>
 </div>
+
 
 
 <div class="col">
-<button class="btn btn-primary m-2">Add Teacher</button>
+<a href="<?=ROOT?>/teacher/create" class="btn btn-primary m-2">Add Teacher</a>
 </div>
 
 
 </div>
+
 
 
 
@@ -47,9 +45,9 @@
 
   </form>
 
-
+<?php if(isset($teachers)){  $rows = $teachers;  }   ?>
        
-
+  
 
 <div class="card-group justify-content-center">
 
@@ -70,7 +68,7 @@
 					<div class="card m-2 shadow-sm" style="max-width: 12rem;min-width: 12rem;">
 	  <img src="<?=$image?>" class=" rounded-circle card-img-top w-75 d-block mx-auto mt-1" alt="Card image cap">
   <div class="card-body">
-    <center><h5 class="card-title"><?=$row['name']?></h5></center>
+    <h5 class="text-center card-title"><?=$row['name']?></h5>
    
     <a   href="<?=ROOT?>/teacher/profile/<?=$row['id']?>"   class="btn btn-primary">Profile</a>
   
@@ -94,4 +92,6 @@
 
 
 	</div>
+
+
 	<?php  $this->view('layouts/footer')?>

@@ -27,6 +27,68 @@ public function index(){
 
 
 public function create(){
+
+
+
+
+    if(!Auth::logged_in_admin())
+    {
+        $this->redirect('section');
+    }
+
+$errors = array();
+    
+  $grades = $this->load_model("Grade");
+
+  $grades =   $grades->findAll();
+
+  $classrooms = $this->load_model("classroom");
+
+  $classrooms =   $classrooms->findAll();
+
+
+
+  $students = $this->load_model("Student");
+
+
+
+  $success = array();
+
+    if(count($_POST) > 0){
+       
+
+    if($students->validate($_POST)){
+
+
+
+
+        $arr['name_student'] = $_POST['name_student'];
+        $arr['email'] = $_POST['email'];
+        $arr['gender'] = $_POST['gender'];
+        $arr['password'] = sha1($_POST['password']);
+        $arr['classroom_id'] = $_POST['classroom_id'];
+        $arr['grade_id'] = $_POST['grade_id'];
+
+     $students->insert($arr); 
+     $success = "Add Success";
+
+
+
+    }else{
+      $errors =  $students->errors;
+    }
+ 
+
+       
+    } 
+
+
+    return $this->view('students/create',[ 'classrooms'=>$classrooms , 'grades' => $grades , 'errors'=>$errors , 'success'=>$success ]); 
+
+
+
+
+
     
 }
 

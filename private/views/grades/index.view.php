@@ -18,7 +18,7 @@
 					</th>
 				</tr>
 				<?php if($rows):?>
-			 <?php  $i = 0;  ?>		 
+			 <?php  $i = 0;?>		 
 			 <?php foreach ($rows as $row):?>
             
 						<tr>

@@ -44,11 +44,53 @@ class  TeacherController   extends Controller
 
 
 
+ public function create(){
+
+  if(!Auth::logged_in_admin())
+   {
+       $this->redirect('section');
+   }
+
+   $specializations = $this->load_model("Specialization");
+
+   $specializations =   $specializations->findAll();
+
+   $teacher = $this->load_model("Teacher");
+
+
+   $errors = array();
+   $success = array();
+   if(count($_POST) > 0){
+       
+    if($teacher->validate($_POST)){
+
+      $arr['name'] = $_POST['name'];
+      $arr['email'] = $_POST['email'];
+      $arr['gender'] = $_POST['gender'];
+      $arr['password'] = sha1($_POST['password']);
+      $arr['specialization_id'] = $_POST['specialization_id'];
+
+      $teacher->insert($arr); 
+     $success = "Add Success";
+
+
+    }else{
+      $errors =  $teacher->errors;
+    }
+ 
+
+       
+    } 
+
+   return $this->view('teachers/create',['specializations' => $specializations , 'errors'=>$errors , 'success'=>$success]);
+ }
+
+
 
  public function edit($id = null){
    
   $errors = array();
-    
+  $success = array();
   $specializations = $this->load_model("Specialization");
 
   $specializations =   $specializations->findAll();
@@ -58,7 +100,7 @@ class  TeacherController   extends Controller
 
   $rows =  $teacher->where('id',$id); 
 
-  $success = array();
+  
 
     if(count($_POST) > 0){
        
