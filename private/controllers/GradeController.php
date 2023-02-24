@@ -84,21 +84,30 @@ class GradeController extends Controller{
       $success = array();
       $rows = $grades->where('id',$id); 
     
-        
+
+      if(count($_POST) > 0){
+
+
         if($grades->validate($_POST)){
  
              
            
-           $grades->update($id,$_POST);  
-  
-           $success = "Update Success";
-           
-        }else{
-          $errors = $grades->errors;
-        }
+          $grades->update($id,$_POST);  
+ 
+          $success = "Update Success";
+          
+       }else{
+         $errors = $grades->errors;
+       }
 
 
-       return $this->view('grades/edit' ,['errors'=>$errors , 'success'=>$success , 'rows' => $rows]);
+
+      }
+        
+      
+
+
+       return $this->view('grades/edit' ,['errors'=>$errors , 'success'=>$success , 'rows'=>$rows]);
      
     }
 
@@ -127,8 +136,6 @@ class GradeController extends Controller{
   }
  
 
-
-    // $students->delete($id);
 
     return $this->view("grades/delete",['rows'=>$rows]);
  

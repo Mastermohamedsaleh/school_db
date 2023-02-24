@@ -38,9 +38,9 @@
 
 			<td> 
 			   
-	<a  href="<?=ROOT?>/classroom/edit/<?=$row['id']?>"  class="btn-sm btn btn-info text-white">Edit</a>
+        	<a  href="<?=ROOT?>/classroom/edit/<?=$row['id']?>"  class="btn-sm btn btn-info text-white">Edit</a>
 
-            <a href="<?=ROOT?>/grade/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
+            <a href="<?=ROOT?>/classroom/delete/<?=$row['id']?>" class="btn-sm btn btn-danger" >DELETE</a>
 
 
 			</td>
@@ -50,7 +50,7 @@
 
 		 	<?php endforeach;?>
 	 			<?php else:?>
-	 				<h4>No Grade were found at this time</h4>
+	 				<h4>No Classroom were found at this time</h4>
 	 			<?php endif;?>
 
 			</table>

@@ -2,12 +2,25 @@
 <?php $this->view('layouts/nav')?>
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-	<?php $this->view('layouts/crumbs')?>
+
 
 		<div class="card-group justify-content-center">
  
 			 <form method="post">
 			 	<h3>Add New Classroom</h3>
+
+
+
+				 <?php  if( $success ): ?>
+           <div class="alert alert-success alert-dismissible fade show" role="alert">
+				  <strong><?php  echo $success;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </span>
+				</div>
+           <?php endif; ?>
+
+
 
 			 	<?php if(count($errors) > 0):?>
 				<div class="alert alert-warning alert-dismissible fade show p-1" role="alert">

@@ -57,10 +57,15 @@
 
 
 
+<!-- <form action=""  method="get">
+<input name="dark" >
 
+<button   type="submit" >Darkmode</button> 
+</form> -->
 
+<input type="checkbox" id="darkTheme" name="darkTheme" onclick='myFunction()'>
+<label for="darkTheme">Тёмная тема</label><br>    
 
-      
 
       <li class="nav-item">
         <a class="nav-link" href="<?=ROOT?>/student" >STUDENTS</a>
@@ -94,7 +99,7 @@
       </li>
   <?php  endif; ?>
 
-  <?php  if( Auth::logged_in_admin()  ):  ?> 
+  <?php  if( Auth::logged_in_admin()   && Auth::admin('rank') == 1 ):  ?> 
      
     <li class="nav-item">
       <a class="nav-link" href="<?=ROOT?>/setting">SETTINGS</a>
@@ -149,6 +154,14 @@
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 
 
+
+        
+<?php if( Auth::logged_in_admin() ):  ?> 
+          <a class="dropdown-item"  href="<?=ROOT?>/home">Dashboard</a>
+          <div class="dropdown-divider"></div>
+
+<?php  endif; ?>
+
   <?php if( Auth::logged_in_student() ){  ?> 
            
           <a class="dropdown-item" href="<?=ROOT?>/profile/studentprofile/<?php  echo Auth::student('id') ?>" >Profile</a>
@@ -172,11 +185,6 @@
 
 
 
-<?php if( Auth::logged_in_admin() ):  ?> 
-          <a class="dropdown-item"  href="<?=ROOT?>/home">Dashboard</a>
-          <div class="dropdown-divider"></div>
-
-<?php  endif; ?>
 
 
           <?php if( Auth::logged_in_student() ){  ?> 

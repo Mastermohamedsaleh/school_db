@@ -35,6 +35,9 @@ function get_image($image , $gender = 'male'){
 
 
 
+
+
+
 // function errors($errors){
     
 //  if(  isset($errors)  && count($errors) > 0):

@@ -13,7 +13,7 @@ public function index(){
     
      $classrooms = $this->load_model('Classroom');
      
-     $rows = $classrooms->query("SELECT classrooms.id , classrooms.classroom ,classrooms.dt, grades.grade FROM classrooms INNER JOIN grades ON classrooms.grade_id = grades.id");
+     $rows = $classrooms->query("SELECT classrooms.id , classrooms.grade_id , classrooms.classroom ,classrooms.dt, grades.grade FROM classrooms INNER JOIN grades ON classrooms.grade_id = grades.id");
 
 
 
@@ -31,16 +31,17 @@ public function create(){
     $grades = $this->load_model('Grade');
     $grades = $grades->findAll();
   $errors = array();
+  $success = array();
    if(count($_POST) > 0){
     $classrooms = $this->load_model('Classroom');
     if($classrooms->validate($_POST)){
-    //    print_r($_POST);
     $classrooms->insert($_POST);
+    $success = "Add Success";
     }else{
         $errors = $classrooms->errors;
     }
    }
-   return $this->view('classrooms/create',['errors'=>$errors,'grades'=>$grades]);
+   return $this->view('classrooms/create',['errors'=>$errors,'grades'=>$grades,'success'=>$success]);
 }
  
 public function edit($id = null){
@@ -58,10 +59,6 @@ public function edit($id = null){
     $success = array();
 if(count($_POST) > 0){
    
-
-
-   print_r($_POST);
-
     if($classrooms->validate($_POST)){
       
         $classrooms->update($id,$_POST);
@@ -77,12 +74,24 @@ if(count($_POST) > 0){
 }
 
 
-public function delete(){
+public function delete($id = null){
 
     if(!Auth::logged_in_admin())
     {
         $this->redirect('section');
     }
+
+    $classrooms = $this->load_model("classroom");
+
+    $rows = $classrooms->where('id',$id); 
+  if(count($_POST) > 0){
+
+    $classrooms->delete($id);
+
+  }
+
+    return $this->view("classrooms/delete",['rows'=>$rows]);
+
 }
 
 
@@ -95,38 +104,17 @@ public function details($id = null){
         $this->redirect('section');
     }
 
-
-
-
     $students = $this->load_model('student');
 
     $classrooms = $this->load_model('Classroom');
      
-   $students =  $students->where('classroom_id',$id);
+    $students =  $students->where('classroom_id',$id);
 
-    $rows = $classrooms->query("SELECT classrooms.id , classrooms.classroom ,classrooms.dt, grades.grade FROM classrooms INNER JOIN grades ON classrooms.id = $id");
+    $rows = $classrooms->query("SELECT classrooms.id , classrooms.classroom ,classrooms.dt, grades.grade FROM classrooms INNER JOIN grades ON grades.id = classrooms.grade_id WHERE classrooms.id = $id");
      
 
 
-//     $teachers = $this->load_model('Teacherclassroom');
-
-    // $teachers = $teachers->query("SELECT   teachers.id , teachers.name , classrooms.id  FROM teachers INNER JOIN classrooms ON    classrooms.id = $id     ORDER BY  teachers.id  DESC");
-
-    // $teachers = $teachers->query("SELECT
-
-    // teacherclassrooms.Id, teacherclassrooms.classroom_id, teachers.name
-
-    // FROM teacherclassrooms
-
-    // LEFT OUTER JOIN techers
-
-    // ON teacherclassrooms.classroom_id = $id ");
-
-
-    // print_r($teachers);
-      
-
-    return $this->view('classrooms/details',['rows'=>$rows , 'students' => $students ]);
+    return $this->view('classrooms/details',['rows'=>$rows , 'students'=>$students ]);
 }
 
 

@@ -93,25 +93,4 @@
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php  $this->view('layouts/footer')?>

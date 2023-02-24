@@ -21,9 +21,13 @@ class Classroom extends Model{
             $this->errors['classroom'] = "Only Letter and Number Can Write Here"; 
         }
     //  Grade
-        // if(empty($data['grade_id'])){
-        //     $this->errors['grade_id'] = "Grade Require"; 
-        // }
+        if(empty($data['grade_id'])){
+            $this->errors['grade_id'] = "Grade Require"; 
+        }
+
+        if($data['grade_id'] == '--Select a Gender--'){
+            $this->errors['grade_id'] = "Grade Require"; 
+        }
         
         if(count($this->errors) == 0){
             return true;

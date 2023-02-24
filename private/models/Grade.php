@@ -18,13 +18,13 @@ class Grade  extends Model{
         }
 
 
-        // if( isset($data['id']) ){
-            // return true;
-        //   }else{
-           if($this->where('grade', $data['grade']) ){
-             $this->errors[] = "Grade Unique"; 
+        if(isset($data['id'])){
+            return true;
+          }else{
+           if($this->where('grade', $data['grade'])){
+             $this->errors['grade'] = "Grade Unique"; 
             }
-        //   }
+          }
 
         
         if(count($this->errors) == 0){

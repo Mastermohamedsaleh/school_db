@@ -81,9 +81,6 @@
 
 
 
-<a href="<?=ROOT?>/cancle/cancle_student/<?php echo $row['id'] ?>">
-<button class="btn btn-warning">Cancle</button>
-</a>
 
 
 

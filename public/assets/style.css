@@ -1,7 +1,19 @@
-body{
+/* body{
     margin: 0%;
     padding: 0%;
+  
+} */
+
+
+html {
+  background: white;
 }
+
+.dark-mode {
+  background: black;
+  filter: invert(1) hue-rotate(180deg);
+}
+
 
 .image-back{
   background: url('http://school.test/assets/images/pexels-pixabay-2097.jpg');
