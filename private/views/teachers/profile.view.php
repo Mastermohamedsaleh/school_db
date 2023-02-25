@@ -27,7 +27,10 @@
 				<div class="text-center">
 
 				<?php  if(Auth::logged_in_teacher()): ?>
-				<button class="btn btn-danger">Edit Image</button>
+					<a href="<?=ROOT?>/Changepassword/teacherpass/<?php  echo $teacher['id']?>" class="btn-sm btn btn-success" >Change Password</a>
+			<a href="<?=ROOT?>/Profiledit/editteacher/<?php echo $teacher['id'] ?>">
+               <button class="btn-sm btn btn-danger">Edit Profile</button>
+            </a>
 				<?php  endif;  ?>
 		</div>
 

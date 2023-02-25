@@ -59,14 +59,6 @@
 
 
 
-<div class="col">
-
-
-<a href="<?=ROOT?>/login/parent" title="parent">
-<img src="<?=ROOT?>/assets/images/parent.png" alt="parent" class="image">
-</a>
-
-</div>
 
 
 

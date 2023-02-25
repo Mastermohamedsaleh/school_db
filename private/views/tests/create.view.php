@@ -55,7 +55,7 @@
                  
 			 	<input class="btn btn-primary float-end" type="submit" value="Create">
 
-			 	<a href="<?=ROOT?>/test">
+			 	<a href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>">
 			 		<input class="btn btn-danger" type="button" value="Cancel">
 			 	</a>
 				

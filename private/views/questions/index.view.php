@@ -24,7 +24,7 @@
 <?php   foreach($tests as $test):  ?>
 
 
-<?php  echo $test['id']  ?>
+
 
 <a href="<?=ROOT?>/question/create/<?php echo $test['id'] ?>" class="btn btn-primary m-2">Add Question</a>
 

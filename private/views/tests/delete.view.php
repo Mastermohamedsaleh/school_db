@@ -29,7 +29,7 @@
                 <?php  endforeach;   ?>
 			 	<input class="btn btn-danger float-end" type="submit" value="Delete">
 
-			 	<a href="<?=ROOT?>/test">
+			 	<a href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>">
 			 		<input class="btn btn-success" type="button" value="Cancel">
 			 	</a>
 			 </form>
@@ -39,10 +39,10 @@
 		<?php else: ?>
 
 			<div style="text-align: center;">
-				<h3>No Book !</h3>
+				<h3>No Test !</h3>
 				<div class="clearfix"></div>
 				<br><br>
-				<a href="<?=ROOT?>/test">
+				<a href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>">
 			 		<input class="btn btn-danger" type="button" value="Cancel">
 			 	</a>
 		 	</div>

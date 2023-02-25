@@ -39,7 +39,7 @@
  <?php  if($success): ?>
            <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
 				  <strong><?php  echo $success;  ?>:</strong>
-                  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
@@ -85,7 +85,7 @@
   <?php  foreach($choices as $key => $value):   ?>
     <li class="list-group-item li0">
     <h6><?php echo $key ?> :</h6> <input type="text" name="choice0"  class="form-control"  value="<?php echo $value  ?>" placeholder="Type Your answer here"> 
-        <input type="radio"  value="<?php echo $key ?>"  name="correct_answer">Correct Answers
+        <input type="radio" value="<?php echo $key ?>" <?php echo ($key == $row['correct_answer']) ? 'checked':''  ?>  name="correct_answer">Correct Answers
     </li>
  <?php endforeach; ?>
 
@@ -94,6 +94,16 @@
   </ul>
 </div>
 </div>
+
+
+
+
+<div class="mt-2">
+    <button class="btn-sm btn btn-primary float-end" >Save Question</button>
+    <a  href="<?=ROOT?>/question/index/<?php echo $row['test_id'] ?>" class="btn-sm btn btn-danger" >Cancle</a>
+</div>
+
+
 <?php  endforeach;  ?>
 
 <?php else: ?>
@@ -103,10 +113,6 @@
 <?php endif; ?>
 
 
-<div class="mt-2">
-    <button class="btn-sm btn btn-primary float-end" >Save Question</button>
-    <button class="btn-sm btn btn-danger" >Cancle</button>
-</div>
 
 
 

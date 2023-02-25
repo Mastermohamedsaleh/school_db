@@ -11,8 +11,6 @@ public function index($id = null){
         echo "NO Book Here";
         die; 
     }
-     
-  
  
        $books = $this->load_model('book');
    

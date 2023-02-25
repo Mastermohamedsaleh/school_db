@@ -17,13 +17,14 @@
                  <?php	 foreach($rows as $row) : ?>
 			 	<input  class="form-control" value="<?php echo $row['question'] ?>" type="text" name="question" ><br><br>
 			 	<input type="hidden" value="<?php echo $row['id'] ?>" name="id">
-                <?php  endforeach;   ?>
+             
 			 	<input class="btn btn-danger float-end" type="submit" value="Delete">
 
-			 	<a href="<?=ROOT?>/">
+			 	<a href="<?=ROOT?>/question/index/<?php echo $row['test_id'] ?>">
 			 		<input class="btn btn-success" type="button" value="Cancel">
 			 	</a>
 			 </form>
+	<?php  endforeach;   ?>
 			
 		</div>
 		<?php else: ?>
@@ -32,14 +33,14 @@
 				<h3>No Question !</h3>
 				<div class="clearfix"></div>
 				<br><br>
-				<a href="<?=ROOT?>">
-			 		<input class="btn btn-danger" type="button" value="Cancel">
-			 	</a>
+			
+		
+			
 		 	</div>
+		
 		<?php endif; ?>
 
-		
+	
 	 
 	</div>
-
 <?php $this->view('layouts/footer')?>

@@ -45,7 +45,7 @@
             <a href="<?=ROOT?>/book/delete/<?=$row['id']?>" class="btn-sm  btn btn-danger" >DELETE</a>
          
 
-	         <a  href="<?=ROOT?>/book/display/<?=$row['id']?>"   class="btn-sm btn btn-warning text-white">View</a>
+	         <a  href="<?=ROOT?>/book/display/<?=$row['id']?>?mybook"   class="btn-sm btn btn-warning text-white">View</a>
 	
 			</td>
 

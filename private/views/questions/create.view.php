@@ -30,7 +30,7 @@
  <?php  if($success): ?>
            <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
 				  <strong><?php  echo $success;  ?>:</strong>
-                  <span  type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </span>
 				</div>
@@ -44,15 +44,7 @@
 
 <form method="POST">
 
-<!-- ID TEST -->
-<?php  if($tests): ?>
-<?php  foreach($tests as $test):  ?>
-     <input type="hidden" name="test_id" value="<?php echo $test['id']  ?>">
-<?php endforeach; ?>
-<?php  else: ?> 
-       <h2>No Questions</h2>
-<?php endif; ?>
-<!-- END ID TEST -->
+
 <div>
 <h4>Question:</h4>
 <input type="text"  name="question" class="form-control" placeholder  = "Question">
@@ -101,12 +93,22 @@
 </div>
 </div>
 
-
-
-<div class="mt-2">
+<!-- ID TEST -->
+<?php  if($tests): ?>
+<?php  foreach($tests as $test):  ?>
+     <input type="hidden" name="test_id" value="<?php echo $test['id']  ?>">
+     <div class="mt-2">
     <button class="btn-sm btn btn-primary float-end" >Save Question</button>
-    <button class="btn-sm btn btn-danger" >Cancle</button>
+    <a  href="<?=ROOT?>/question/index/<?php echo $test['id'] ?>" class="btn-sm btn btn-danger" >Cancle</a>
 </div>
+
+<?php endforeach; ?>
+<?php  else: ?> 
+       <h2>No Questions</h2>
+<?php endif; ?>
+<!-- END ID TEST -->
+
+
 
 
 

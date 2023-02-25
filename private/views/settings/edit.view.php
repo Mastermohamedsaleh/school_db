@@ -46,7 +46,7 @@
     <input type="text" name="facebook"   placeholder="facebook" value="<?php echo $row['facebook'] ?>" class="form-control mb-2">
     <input type="text" name="instagram"   placeholder="instagram" value="<?php echo $row['instagram'] ?>" class="form-control mb-2">
     <input type="text" name="twitter"   placeholder="twitter" value="<?php echo $row['twitter'] ?>" class="form-control mb-2">
-    <input type="text" name="twitter"   placeholder="twitter" value="<?php echo $row['phone'] ?>" class="form-control mb-2">
+    <input type="text" name="phone"   placeholder="Phone" value="<?php echo $row['phone'] ?>" class="form-control mb-2">
  <?php  endforeach; ?>
 
  <a href="<?=ROOT?>/setting" class="btn btn-danger" >Cancle</a>

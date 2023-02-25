@@ -14,11 +14,11 @@ class Teacherclassroom extends Model{
         $this->errors = array();
     // classroom_id
         if(empty($data['classroom_id'])){
-            $this->errors[] = "Only Letter and Number Can Write Here"; 
+            $this->errors[] = "Classroom Require"; 
         }
         
         if(empty($data['teacher_id'])){
-            $this->errors[] = "Only Letter and Number Can Write Here"; 
+            $this->errors[] = "Teacher Require"; 
         }
         
         if(count($this->errors) == 0){

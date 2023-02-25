@@ -24,7 +24,7 @@ class TestController extends Controller {
 
  public function create(){
     
-    if(!Auth::logged_in_admin())
+    if(!Auth::logged_in_teacher())
     {
         $this->redirect('section');
     }
@@ -63,7 +63,14 @@ class TestController extends Controller {
 
 
 
-  public function edit($id){
+  public function edit($id = null){
+
+    if(!Auth::logged_in_teacher())
+    {
+        $this->redirect('section');
+    }
+
+
     $classrooms = $this->load_model('Classroom');
     $classrooms = $classrooms->findAll();
     $grades = $this->load_model('Grade');
@@ -99,8 +106,12 @@ if(count($_POST) > 0){
 
 
 
-  public function delete($id){
+  public function delete($id = null){
   
+    if(!Auth::logged_in_teacher())
+    {
+        $this->redirect('section');
+    }
     $tests = $this->load_model('test');
     $rows = $tests->where('id',$id); 
      if(count($_POST) > 0){
@@ -117,7 +128,7 @@ if(count($_POST) > 0){
 
 
 //  Display Test For Student
-public function display($id){
+public function display($id = null){
 
   $tests = $this->load_model('test');
   $rows = $tests->where('classroom_id',$id);     

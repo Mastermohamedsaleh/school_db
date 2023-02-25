@@ -1,5 +1,10 @@
-<?php $this->view('layouts/header')?>
-<?php $this->view('layouts/nav')?>
+<?php  $this->view('layouts/header')?>
+<?php  $this->view('layouts/nav')?>
+
+
+
+
+
 
 
 
@@ -9,7 +14,17 @@
 
 <div class="container shadow  p-5  mx-auto"  style="max-width: 1000px;">
 
-<h4>Add Teacher Into Class</h4>
+<h4>Update Teacher Into Class</h4>
+
+
+
+
+
+
+
+
+
+
 
 <form method="POST">
 <div class="row">
@@ -24,7 +39,7 @@
   
     <select name="classroom_id" class="form-control">
     <?php foreach($classrooms as $classroom): ?> 
-<option value="<?php echo $classroom['id'] ?>"><?php echo $classroom['classroom']?></option>
+<option  value="<?php if($classroom['id'] == $classroom_id ){echo 'selected';} ?> " ><?php echo $classroom['classroom']?></option>
 <?php endforeach; ?>
 </select>
     </div>
@@ -37,34 +52,4 @@
 </form>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-<?php $this->view('layouts/footer')?>
+<?php  $this->view('layouts/footer')?>

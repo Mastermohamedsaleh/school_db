@@ -1,13 +1,14 @@
-/* body{
+body{
     margin: 0%;
     padding: 0%;
-  
-} */
-
-
-html {
-  background: white;
+    background: rgba(0, 0, 0 , 0.1);
+   /* background:   rgba(199, 170, 170, 0.1); */
 }
+
+
+/* html {
+  background: white;
+} */
 
 .dark-mode {
   background: black;

@@ -14,27 +14,9 @@ class BookController extends Controller{
       
      ON   books.teacher_id = teachers.id ");
 
-
-
    return $this->view('books/index',['rows'=>$rows]);
 
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    public function create(){
   
@@ -58,12 +40,7 @@ class BookController extends Controller{
       if(count( $_FILES ) > 0 ){
        
        
-
-
-
-    if( $_FILES['file']['size'] < 10 * 1024 * 1024 * 1024){
-      
-          
+    if($_FILES['file']['size'] < 10 * 1024 * 1024 * 1024){
       
       $file_extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION); 
         
@@ -106,29 +83,12 @@ class BookController extends Controller{
          $errorsfile = "Put txt OR pdf OR doc";
      }
          
- 
-
-
- 
-       
-        
-       
- 
 
     }else{
       $errorsfile = "Please Put Size Less"; 
     }
  
-
-
-      
-     
-      
-
-
-     
-
-       
+   
       }
    } else{
     $errors  =  $books->errors;
@@ -142,8 +102,7 @@ class BookController extends Controller{
 
 
 
-
-
+   
 // Edit
    public function edit($id = null){
     
@@ -204,8 +163,12 @@ class BookController extends Controller{
              $data['teacher_id'] = Auth::teacher('id');        
              $data['classroom_id'] = $_POST['classroom_id'];        
        
-             $success = "Update SUCCESS";   
              $books->update($id,$data);
+             $success = "Update SUCCESS";   
+
+             return $this->redirect('mybook/index/'.Auth::teacher('id'));
+
+
 
             }else{
                $errorsfile = "Put txt OR pdf OR doc";
@@ -232,17 +195,7 @@ class BookController extends Controller{
     }
  
        return $this->view('books/edit',['rows'=>$rows,'grades'=>$grades , 'classrooms'=>$classrooms , 'errors'=>$errors ,'errorsfile'=>$errorsfile , 'success'=>$success]);
-
-
- 
-
-  }
-
-
-
-
-
-
+ }
 
 
 // Delete
@@ -269,11 +222,5 @@ public function display($id = null){
    $rows = $books->where('id',$id);
    return $this->view('books/display',['rows'=>$rows]);
 }
-
-
-
-
-
-
-    
+ 
 }

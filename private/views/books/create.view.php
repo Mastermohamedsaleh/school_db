@@ -92,7 +92,7 @@
 
 
 <div class="col-6">
-<a href="<?=ROOT?>/book"  class="btn btn-outline-danger"> Cancle</a>
+<a href="<?=ROOT?>/mybook/index/<?php  echo Auth::teacher('id') ?>"  class="btn btn-outline-danger"> Cancle</a>
 
 </div>
 

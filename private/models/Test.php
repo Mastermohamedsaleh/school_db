@@ -28,6 +28,16 @@ class Test extends Model{
             $this->errors['classroom_id'] = "Classroom Require"; 
         }
 
+
+        if($data['classroom_id']  == "--Select a Gender--"){
+            $this->errors['classroom_id'] = "Classroom Require"; 
+        }
+
+        
+        if($data['grade_id']  == "--Select a Gender--"){
+            $this->errors['grade_id'] = "Grade Require"; 
+        }
+
     //  Grade
         if(empty($data['grade_id'])){
             $this->errors['grade_id'] = "Grade Require"; 

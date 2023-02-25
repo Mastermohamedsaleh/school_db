@@ -25,15 +25,25 @@
     <ul class="navbar-nav">
 
 
+<!-- Dashboard Teacher -->
+    <?php  if( Auth::logged_in_teacher()   ):  ?>
+    <li class="nav-item active">
+        <a class="nav-link active"  href="<?=ROOT?>/home/teacher" >DASHBOARD</a>
+      </li>
+      <?php  endif ?>
 
-  
+<!-- End Dashboard teacher -->
+
+
+
 
     <?php  if( Auth::logged_in_admin()   ):  ?>
-      <?php  if(Auth::logged_in_teacher()  || Auth::logged_in_admin()   ):  ?> 
+
       <li class="nav-item active">
         <a class="nav-link active"  href="<?=ROOT?>/home" >DASHBOARD</a>
       </li>
-   <?php endif; ?>
+   
+
 
   
 
@@ -145,12 +155,17 @@
            <?php
          }elseif( Auth::logged_in_student()){
           echo Auth::student('name_student');
-         }
+         }else{
             ?>
-        <?php  echo Auth::admin('name_admin');  ?>
+        <?php  echo Auth::admin('name_admin'); } ?>
         </a>
 
 
+
+
+
+
+        
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
 
 
@@ -174,7 +189,7 @@
 
     <?php
     
-    }else{
+    }elseif( Auth::logged_in_admin() ){
     ?>
           <a class="dropdown-item" href="<?=ROOT?>/profile/adminprofile/<?php   echo Auth::admin('id') ?>" >Profile</a>
  
@@ -187,24 +202,16 @@
 
 
 
-          <?php if( Auth::logged_in_student() ){  ?> 
-           
+<?php if( Auth::logged_in_student() ){  ?>   
           <a class="dropdown-item" href="<?=ROOT?>/Logout/index/STUDENT" >Logout</a>
  <?php   
- 
      }elseif( Auth::logged_in_teacher() ){
  ?>
-                    <a class="dropdown-item" href="<?=ROOT?>/Logout/index/TEACHER" >Logout</a>
-
- 
+                    <a class="dropdown-item" href="<?=ROOT?>/Logout/index/TEACHER">Logout</a>
      <?php
-     
-     }else{
+     }elseif( Auth::logged_in_admin() ){
      ?>
-                 <a class="dropdown-item" href="<?=ROOT?>/Logout/index/ADMIN" >Logout</a>
-
-  
- 
+                 <a class="dropdown-item" href="<?=ROOT?>/Logout/index/ADMIN">Logout</a>
  <?php  } ?>
 
 

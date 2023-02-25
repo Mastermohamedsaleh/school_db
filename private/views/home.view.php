@@ -41,7 +41,7 @@ sssssss
 <?php   $this->view("layouts/nav"); ?>
 
 
-<?php   if( Auth::logged_in_admin() ): ?>
+
 
 <style>
  
@@ -77,7 +77,7 @@ sssssss
 <div class="row">
 
 
-
+<?php   if( Auth::logged_in_admin() ): ?>
  <div class="col-lg-4 col-sm-12">
 
  
@@ -97,7 +97,8 @@ Myschool
        Students
     </div>
      
- </div>  
+ </div>
+
  
  </div>
  <div class="col-lg-4 col-sm-12">
@@ -179,6 +180,14 @@ Myschool
  </div>  
  
  </div>
+
+
+  
+ <?php endif; ?>
+
+
+ 
+<?php   if( Auth::logged_in_admin()  ||  Auth::logged_in_teacher()  ): ?>
  <div class="col-lg-4 col-sm-12">
 
  
@@ -194,12 +203,17 @@ Myschool
    </div>
 
    <div class="card-header  text-success">
-Library
+Books
     </div>
      
  </div>  
  
  </div>
+
+ <?php endif; ?>
+
+
+<?php  if( Auth::logged_in_admin() ) : ?>
  <div class="col-lg-4  col-sm-12">
 
  
@@ -223,6 +237,7 @@ Parents
  </div>
 
 </div>
+
 
 
 <!-- End row -->
@@ -256,27 +271,38 @@ Myschool
  </div>  
  
  </div>
+ 
+ 
+ <?php  endif; ?>
+ <?php   if( Auth::logged_in_teacher() ) :  ?>
+ 
  <div class="col-lg-4 col-sm-12">
 
  
  <div class="card shadow">
  
  <div class="card-header  text-success">
-sss
+Myschool
     </div>   
 
 
    <div class="card-body">
-       <a href="" class="ff" >  <i class="fa fa-plus"></i> </a>
+       <a href="<?=ROOT?>/mybook/index/<?php echo Auth::teacher('id') ?>" class="ff" >  <i class="fa fa-plus"></i> </a>
    </div>
 
    <div class="card-header  text-success">
-Library
+Mybook
     </div>
      
  </div>  
  
  </div>
+
+
+
+
+
+
  <div class="col-lg-4  col-sm-12">
 
 
@@ -288,11 +314,11 @@ Myschool
     </div>
 
    <div class="card-body">
-       <a href="<?=ROOT?>/setting" class="ff" >  <i class="fa fa-cogs"></i> </a>
+       <a href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>" class="ff" ><i class="fa fa-cogs"></i> </a>
    </div>
 
    <div class="card-header  text-success">
-Settings
+TESTS
     </div>
      
  </div>  
@@ -310,82 +336,18 @@ Settings
 
 
 
-</div>
-
-<?php  endif; ?>
 
 
 
 
 
-
-
-
-
-<!-- For Student And Teacher -->
-
-
-
-<?php   if( Auth::logged_in_student()   ||  Auth::logged_in_teacher() ): ?>
-  
-    
-    
-
-	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 2000px;">
+ <?php endif; ?>
 
 
 
 
 
 
-    <!-- Head -->
-<div class="image-back">
-  
-
-
-   <div class="learn">
-      <p class="">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p><br>
-      <h1>WELCOME TO OUR SCHOOL </h1>  
-   </div>
-
-
-
-</div>
-
-<!-- End Head -->
-
-
-
-<!-- Start Our Team -->
-
-
-
-<div class="our-team">
-
-
-
-
-<div class="row">
-
- <h1 class="text-center">Our team</h1>
-
-<div class="col mx-2">
-     
-</div>
-
-
-<div class="col">
-    sssssssss
-</div>
-
-
-<div class="col mx-2">
-    sssssssss
-</div>
-
-
-
-</div>
 
 
 
@@ -393,93 +355,6 @@ Settings
 
 
 </div>
-
-
-
-
-
-<!-- End Our Team -->
-
-<!-- Number members -->
-
-
-<h1 class="text-center">Members</h1>
-
-<div class="number-members">
-
-
-
-
-
-
-
-
-
-<div class="row p-4">
-
-
-<div class="col">
-
-  
-  <div class="contact text-center">
-  <i class= "fa fa-plus"></i>
-     <h6 class="text-light">70000</h6>
-     <p class="text-light">Students</p>
-  </div>
-  
-
-</div>
-
-
-<div class="col">
-
-
-<div class="contact text-center">
-<i class="fa-solid fa-palette"></i>
-     <h6 class="text-light">70000</h6>
-     <p class="text-light">Students</p>
-  </div>
-
-</div>
-
-
-<div class="col">
-
-<div class="contact text-center">
-  <i class= "fa fa-plus"></i>
-     <h6 class="text-light">70000</h6>
-     <p class="text-light">Students</p>
-  </div>
-
-
-</div>
-
-
-</div>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-<!-- End Number Members -->
 
 
 
@@ -490,7 +365,7 @@ Settings
 
 
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-white text-muted">
+<footer class="text-center text-lg-start bg-white text-muted" style="margin-top:306px">
 
 
   <!-- Copyright -->
@@ -505,28 +380,6 @@ Settings
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 
@@ -541,7 +394,7 @@ Settings
 
 
 
-<?php  endif; ?>
+
 
 
 

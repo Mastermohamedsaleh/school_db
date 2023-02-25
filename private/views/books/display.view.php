@@ -14,8 +14,15 @@
 
 <?php  endforeach; ?>
 
-<a href="<?=ROOT?>/book" class="btn btn-danger">Cancle</a>
 
+<?php  if(isset($_GET['mybook'])): ?>
+
+<a href="<?=ROOT?>/mybook/index/<?php echo Auth::teacher('id') ?>" class="btn btn-danger">Cancle</a>
+<?php else: ?>
+
+    <a href="<?=ROOT?>/book" class="btn btn-danger">Cancle</a>
+
+    <?php endif; ?>
 </div>
 
 

@@ -82,7 +82,7 @@
 
 
 <!--  -->
-		    <a   href="<?=ROOT?>/test"  class="btn btn-danger ">Cancle</a>	
+		    <a   href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>"  class="btn btn-danger ">Cancle</a>	
 		
 
              
@@ -96,8 +96,9 @@
 			
 	</form>
  <?php  else: ?>
- <h1 class="text-danger text-center">No Tets Here</h1>
+ <h1 class="text-danger text-center">No Teats Here</h1>
 
+ <a   href="<?=ROOT?>/test/index/<?php echo Auth::teacher('id') ?>"  class="btn btn-danger ">Cancle</a>	
 
 
 <?php  endif;  ?>

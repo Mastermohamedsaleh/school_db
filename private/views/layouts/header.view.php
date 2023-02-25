@@ -30,7 +30,7 @@
 
 
 
-   <link  rel="stylesheet"   type="text/css"  href ="<?=ROOT?>/assets/style.css"> 
+   <link  rel="stylesheet"   type="text/css"  href ="<?=ROOT?>/assets/styl.css"> 
 
   
 

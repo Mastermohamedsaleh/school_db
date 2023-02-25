@@ -29,9 +29,8 @@
                 <?php  endforeach;   ?>
 			 	<input class="btn btn-danger float-end" type="submit" value="Delete">
 
-			 	<a href="<?=ROOT?>/book">
-			 		<input class="btn btn-success" type="button" value="Cancel">
-			 	</a>
+				 <a href="<?=ROOT?>/mybook/index/<?php echo Auth::teacher('id') ?>" class="btn btn-success">Cancle</a>
+
 			 </form>
 
 			
@@ -42,9 +41,8 @@
 				<h3>No Book !</h3>
 				<div class="clearfix"></div>
 				<br><br>
-				<a href="<?=ROOT?>/book">
-			 		<input class="btn btn-danger" type="button" value="Cancel">
-			 	</a>
+				<a href="<?=ROOT?>/mybook/index/<?php echo Auth::teacher('id') ?>" class="btn btn-danger">Cancle</a>
+
 		 	</div>
 		<?php endif; ?>
 

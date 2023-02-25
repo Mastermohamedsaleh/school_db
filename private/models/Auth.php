@@ -48,15 +48,7 @@ class Auth  extends Database{
 		}
 	}
 
-    // public static function logged_in()
-	// {
-	// 	if(isset($_SESSION['USER']))
-	// 	{
-	// 		return true;
-	// 	}
 
-	// 	return false;
-	// }
 
     public static function logged_in_admin()
 	{
@@ -104,7 +96,7 @@ class Auth  extends Database{
 
    public   static function  admin($item){
 
-	foreach ($_SESSION['ADMIN'] as $value    ){
+	foreach ($_SESSION['ADMIN'] as $value){
      
 		$row =  $value[$item];
 	 }
@@ -115,7 +107,7 @@ class Auth  extends Database{
 
    public   static function  Student($item){
 
-	foreach ($_SESSION['STUDENT'] as $value    ){
+	foreach ($_SESSION['STUDENT'] as $value){
      
 		$row =  $value[$item];
 	 }
@@ -123,13 +115,6 @@ class Auth  extends Database{
      return $row;
 	
    }
-
-
-
-
-
-
-
 
 
     public static function user(){
