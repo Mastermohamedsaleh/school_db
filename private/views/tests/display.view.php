@@ -24,24 +24,19 @@
 
 				<td>
 				<a href="<?=ROOT?>/question/display/<?=$row['id']?>">
-			 			<button class="btn btn-sm btn-primary"><i class="fa-solid fa-house"></i></button>
+			 			<button class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i></button>
 			 		</a>
 				</td>	
 				
 				
-    <?php    $active   = ($row['disable'] == 0) ?  "NO" : "Yes"   ?>
+    <?php   $active = ($row['disable'] == 0) ?  "NO" : "Yes" ?>
 
             <td><?php  echo ++$i ?></td>
             <td><?php  echo $row['test']; ?></td>
             <td><?php  echo $active ?></td>
             <td><?php  echo $row['dt']; ?></td>
 
-			<td> 
-			   
-	 
-
-
-			</td>
+			
 
 						</tr>
 				

@@ -130,10 +130,17 @@ if(count($_POST) > 0){
 //  Display Test For Student
 public function display($id = null){
 
+
+   if($id  != Auth::student('classroom_id')){
+        echo "NO Test Here";
+        die;
+   }
+  
+
+
   $tests = $this->load_model('test');
   $rows = $tests->where('classroom_id',$id);     
   
-
   return $this->view("tests/display",['rows'=>$rows]);
 
 } 

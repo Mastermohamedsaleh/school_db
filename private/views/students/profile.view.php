@@ -20,7 +20,12 @@
 				<h3 class="text-center"><?php echo $row['name_student']  ?></h3>
 				<div class="text-center">
 				<?php  if(Auth::logged_in_student()): ?>
-				<button class="btn btn-danger">Edit Image</button>
+				
+					<a href="<?=ROOT?>/Changepassword/teacherpass/<?php  echo $row['id']?>" class="btn-sm btn btn-success" >Change Password</a>
+			<a href="<?=ROOT?>/Profiledit/editstudent/<?php echo $row['id'] ?>">
+               <button class="btn-sm btn btn-danger">Edit Profile</button>
+            </a>
+	
                 <?php  endif; ?>
 				</div>
 

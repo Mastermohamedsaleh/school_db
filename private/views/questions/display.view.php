@@ -12,6 +12,14 @@
 
 
 
+<?php  if($success): ?>
+           <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
+				  <strong><?php  echo $success;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </span>
+				</div>
+           <?php endif; ?>
 
 
 

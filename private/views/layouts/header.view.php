@@ -25,12 +25,8 @@
 
 
 
-  <!-- <link  rel="stylesheet"   type="text/css"  href ="<?=ROOT?>/assets/dark.css">  -->
 
-
-
-
-   <link  rel="stylesheet"   type="text/css"  href ="<?=ROOT?>/assets/styl.css"> 
+   <link  rel="stylesheet"   type="text/css"  href ="<?=ROOT?>/assets/sty.css"> 
 
   
 

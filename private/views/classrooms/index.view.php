@@ -28,7 +28,7 @@
 
 				<td>
 				<a href="<?=ROOT?>/classroom/details/<?=$row['id']?>">
-			 			<button class="btn btn-sm btn-primary"><i class="fa-solid fa-house"></i></button>
+			 			<button class="btn btn-sm btn-primary"><i class="fa fa-arrow-up"></i></button>
 			 		</a>
 				</td>		
             <td><?php  echo ++$i ?></td>

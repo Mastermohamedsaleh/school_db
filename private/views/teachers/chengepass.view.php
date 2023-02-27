@@ -13,8 +13,6 @@
 
 <h4 class="text-center text-success">Edit Password</h4>
 
-
-
 <?php if( $errorpassword ): ?>
   <div class="alert alert-danger alert-dismissible fade show p-1" role="alert">
 				  <strong><?php  echo $errorpassword;  ?>:</strong>
@@ -23,11 +21,19 @@
 				  </span>
 				</div>
 <?php endif; ?>
+<?php if( $errors ): ?>
+  <div class="alert alert-danger alert-dismissible fade show p-1" role="alert">
+				  <strong><?php  echo $errors;  ?>:</strong>
+                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </span>
+				</div>
+<?php endif; ?>
 
 
 
-            
-			<?php  if($success): ?>
+
+<?php  if($success): ?>
            <div class="alert alert-success alert-dismissible fade show p-1" role="alert">
 				  <strong><?php  echo $success;  ?>:</strong>
                   <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
@@ -35,14 +41,8 @@
 				  </span>
 				</div>
            <?php endif; ?>
-			<?php  if($errors): ?>
-           <div class="alert alert-danger alert-dismissible fade show p-1" role="alert">
-				  <strong><?php  echo $errors;  ?>:</strong>
-                  <span  type="button" class="close float-end" data-bs-dismiss="alert" aria-label="Close">
-				    <span aria-hidden="true">&times;</span>
-				  </span>
-				</div>
-           <?php endif; ?>
+
+
 
 <div class="row">
 <?php  foreach($rows as $row): ?>
@@ -70,7 +70,7 @@
 <input class="my-2 form-control"  value="<?=get_var('oldpassword')?>"  type="password" name="oldpassword" placeholder="Password">
 <input class="my-2 form-control"  value="<?=get_var('password')?>" type="password" name="password" placeholder="Retype Password">
 
-<a  href = "<?=ROOT?>/profile/adminprofile/<?php echo $row['id'] ?>" class="btn-sm  btn btn-outline-danger " >Cancle</a>
+<a  href = "<?=ROOT?>/profile/teacherprofile/<?php echo $row['id'] ?>" class="btn-sm  btn btn-outline-danger " >Cancle</a>
 
 <button type="submit" class="btn-sm btn  btn-outline-success float-end" >Change</button>
 

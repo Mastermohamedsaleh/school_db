@@ -150,20 +150,34 @@ class QuestionController extends Controller {
 
 
     //  Display Test To Student
-    public function display($id){
+    public function display($id = null){
 
+
+
+
+
+
+
+      
     if(!Auth::logged_in_student()){
         echo "You Are Not Student";
     }
+
+
+
+
+
+
 
     $tests = $this->load_model("test");
   
     $tests = $tests->where('id',$id);
 
 
-
+    $errors = array();
+    $success = array();
     if(count($_POST) > 0){
-      $errors = array();
+     
       $answers = $this->load_model("Answer");
   
 
@@ -187,7 +201,7 @@ class QuestionController extends Controller {
      
        "student_id" => Auth::Student('id'),
        'test_id' => $id,
-       'question_id' =>    $arr['question_id']
+       'question_id' =>$arr['question_id']
      
     ]); 
  
@@ -198,19 +212,14 @@ class QuestionController extends Controller {
   
 
   $answers->insert($arr);
+
+  $success = "You Answer Wait Your Mark and good luck";
    
   }else{
       return $this->view("endtest"); 
   }
 
-
-
-
-
-  }
-
-
-
+   }
 
      }
 
@@ -218,7 +227,7 @@ class QuestionController extends Controller {
 
     $rows =   $questions->where("test_id",$id);
 
-      return $this->view("questions/display",['rows'=>$rows , 'tests' => $tests  ]);
+      return $this->view("questions/display",['rows'=>$rows , 'tests' => $tests ,'success'=>$success ]);
     }
 
 

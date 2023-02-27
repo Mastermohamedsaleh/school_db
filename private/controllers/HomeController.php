@@ -24,8 +24,13 @@ class HomeController extends Controller{
 
 			$this->redirect('section');
 		}
+
+
+		$settings = $this->load_model('setting');
+
+		$settings = $settings->findAll();
  
-      return $this->view('home');
+      return $this->view('home',['settings'=>$settings]);
     }
 
 
@@ -34,8 +39,10 @@ class HomeController extends Controller{
 		{
 			$this->redirect('section');
 		}
-		
-		return $this->view('home');
+		$settings = $this->load_model('setting');
+
+		$settings = $settings->findAll();
+		return $this->view('home',['settings'=>$settings]);
 	}
     
      

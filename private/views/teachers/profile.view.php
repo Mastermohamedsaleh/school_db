@@ -22,7 +22,7 @@
 
 		<div class="row">
 			<div class="col-sm-4 col-md-3">
-				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
+				<img src="<?php echo $image; ?>" class="border border-primary d-block mx-auto rounded-circle " style="width:100px;">
 				<h3 class="text-center"><?php echo $teacher['name']  ?></h3>
 				<div class="text-center">
 

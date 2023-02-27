@@ -34,6 +34,15 @@
 
 <!-- End Dashboard teacher -->
 
+<!-- Dashboard Teacher -->
+    <?php  if( Auth::logged_in_student()   ):  ?>
+    <li class="nav-item active">
+        <a class="nav-link active"  href="<?=ROOT?>/home/student" >DASHBOARD</a>
+      </li>
+      <?php  endif ?>
+
+<!-- End Dashboard teacher -->
+
 
 
 
@@ -67,14 +76,7 @@
 
 
 
-<!-- <form action=""  method="get">
-<input name="dark" >
-
-<button   type="submit" >Darkmode</button> 
-</form> -->
-
-<input type="checkbox" id="darkTheme" name="darkTheme" onclick='myFunction()'>
-<label for="darkTheme">Тёмная тема</label><br>    
+  
 
 
       <li class="nav-item">
@@ -103,11 +105,11 @@
 
 
          
-    <?php  if(Auth::logged_in_teacher()    || Auth::logged_in_student()  ):  ?> 
+
       <li class="nav-item">
       <a class="nav-link" href="<?=ROOT?>/Book">BOOKS</a>
       </li>
-  <?php  endif; ?>
+
 
   <?php  if( Auth::logged_in_admin()   && Auth::admin('rank') == 1 ):  ?> 
      
@@ -137,7 +139,7 @@
 
       <?php  if(Auth::logged_in_student()) : ?>
       <li class="nav-item">
-        <a   href="<?=ROOT?>/test/display/<?php  echo Auth::student('classroom_id')  ?>" class="nav-link">TESTS</a>
+        <a   href="<?=ROOT?>/test/display/<?php  echo Auth::student('classroom_id') ?>" class="nav-link">TESTS</a>
       </li>
       <?php  endif; ?>
 

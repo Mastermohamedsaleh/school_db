@@ -17,13 +17,16 @@ class Setting extends Model {
         if(empty($data['twitter'])    ||   !filter_var($data['twitter'], FILTER_VALIDATE_URL)){
             $this->errors[] = "Please Enter Link twitter"; 
         }
-        if(empty($data['phone'])    ||  !preg_match('/^[0-9]{10}+$/', $data['phone'])){
-            $this->errors[] = "Please Enter your phone"; 
-        }
 
 
+     if(  strlen( $data['phone'] )  <  11 ){
+        $this->errors[] = "Please Enter  Only 11 Number "; 
+     } 
 
 
+     if(!is_numeric($data['phone'])){
+        $this->errors[] = "Please Enter your phone";
+     }
 
         
         if(count($this->errors) == 0){

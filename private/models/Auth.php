@@ -16,13 +16,13 @@ class Auth  extends Database{
         $_SESSION['PARENT'] = $row;  
     }
 
-    public static function logout()
-	{
-		if(isset($_SESSION['USER']))
-		{
-			unset($_SESSION['USER']);
-		}
-	}
+    // public static function logout()
+	// {
+	// 	if(isset($_SESSION['USER']))
+	// 	{
+	// 		unset($_SESSION['USER']);
+	// 	}
+	// }
 
     public static function logoutteacher()
 	{

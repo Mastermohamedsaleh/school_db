@@ -15,7 +15,7 @@
 		<div class="card-group justify-content-center">
 			<table class="table table-striped table-hover text-center">
 				<tr><th>#</th><th>Name Book</th><th>Grade</th><th>Classroom</th><th>Teacher</th>
-				<?php  if( Auth::logged_in_admin()  ) :  ?>
+				<?php  if( Auth::logged_in_teacher()  ) :  ?>
 					<th>
 				
 			<a  href="<?=ROOT?>/book/create" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</a>
@@ -42,7 +42,7 @@
      
 
 			  
-           <?php  if(  Auth::logged_in_admin()  ) :  ?>
+           <?php  if(  Auth::logged_in_teacher()  ) :  ?>
 		      	<a  href="<?=ROOT?>/book/edit/<?=$row['id']?>"  class="btn-sm btn btn-info text-white">Edit</a>
             <a href="<?=ROOT?>/book/delete/<?=$row['id']?>" class="btn-sm  btn btn-danger" >DELETE</a>
            <?php  endif; ?>

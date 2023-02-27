@@ -106,7 +106,7 @@ class BookController extends Controller{
 // Edit
    public function edit($id = null){
     
-
+       
       $books = $this->load_model('book');
       $rows  = $books->where('id',$id);
 
