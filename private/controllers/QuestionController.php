@@ -10,7 +10,18 @@ class QuestionController extends Controller {
      
         $questions = $this->load_model("question");
 
-        $rows =   $questions->where("test_id",$id);
+        // $rows =   $questions->where("test_id",$id);
+
+
+        $rows =   $questions->query("SELECT * FROM questions WHERE test_id = :id AND teacher_id = :teacher_id",[
+          'id'=>$id,
+          'teacher_id'=>Auth::teacher('id')
+        ]);
+
+
+
+
+     
 
         $tests = $this->load_model("test");
   
@@ -50,7 +61,7 @@ class QuestionController extends Controller {
         }
 
          $_POST['choices']   =    json_encode($arr);
- 
+         $_POST['teacher_id'] = Auth::teacher('id');   
           $questions->insert($_POST);
 
            $success = "Add Success";

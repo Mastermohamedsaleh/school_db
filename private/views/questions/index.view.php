@@ -13,7 +13,6 @@
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 
 
-<h3 class="text-center text-primary">All Question</h3>
 
 
 
@@ -26,15 +25,22 @@
 
 
 
-<a href="<?=ROOT?>/question/create/<?php echo $test['id'] ?>" class="btn btn-primary m-2">Add Question</a>
-
-
 
 
 
  
 
 <?php  if($rows): ?>
+
+
+
+   
+<h3 class="text-center text-primary">All Question</h3>
+
+
+
+
+<a href="<?=ROOT?>/question/create/<?php echo $test['id'] ?>" class="btn btn-primary m-2">Add Question</a>
 
 <div class="row" >
 
@@ -111,6 +117,9 @@
 
 <?php endforeach; ?>
 
+<?php else :?>
+
+ <h1 class="text-center text-danger">No Question</h1>
    <?php  endif; ?>
 
 <?php   endforeach; ?>
@@ -128,7 +137,7 @@
 
 <?php  else : ?>
  
-   <h1 class="text-center text-danger">No Question</h1>
+   <h1 class="text-center text-danger">No Test</h1>
    
 
 

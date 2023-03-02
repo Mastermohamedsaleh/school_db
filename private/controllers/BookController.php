@@ -105,10 +105,9 @@ class BookController extends Controller{
    
 // Edit
    public function edit($id = null){
-    
-       
+
       $books = $this->load_model('book');
-      $rows  = $books->where('id',$id);
+      $rows  = $books->query("SELECT * FROM books WHERE id = $id AND teacher_id =".Auth::teacher('id'));
 
       $grades = $this->load_model("grade");
       $grades = $grades->findAll();
@@ -201,7 +200,7 @@ class BookController extends Controller{
 // Delete
    public function delete($id = null){
       $books = $this->load_model('book');
-     $rows = $books->where('id',$id); 
+      $rows  = $books->query("SELECT * FROM books WHERE id = $id AND teacher_id =".Auth::teacher('id'));
       if(count($_POST) > 0){
         $filename = $_SERVER['DOCUMENT_ROOT']."/books"."/".$_POST['pdf'];
         if(file_exists($filename)){

@@ -7,6 +7,11 @@ class TestController extends Controller {
  public function index($id = null){
   
 
+  if( $id != Auth::teacher('id') ){
+    $this->redirect('section');
+  }
+ 
+
  $tests = $this->load_model("test");
 
  $rows = $tests->query("SELECT tests.id ,tests.classroom_id ,tests.test , tests.dt , tests.disable ,tests.description , teachers.name ,classrooms.classroom , grades.grade FROM tests INNER JOIN   teachers ON tests.teacher_id = teachers.id INNER JOIN classrooms  ON classrooms.id = tests.classroom_id INNER JOIN grades ON tests.grade_id = grades.id WHERE teacher_id = $id");
@@ -77,7 +82,10 @@ class TestController extends Controller {
     $grades = $grades->findAll();
         
     $tests =  $this->load_model('test'); 
-    $rows  =  $tests->where('id',$id);
+    $rows  =  $tests->query("SELECT * FROM tests WHERE id = :id AND teacher_id = :teacher_id" , [
+      'id'=>$id,
+      'teacher_id'=>Auth::teacher('id')
+    ]);
 
     $errors = array();
     $success = array();
@@ -112,8 +120,11 @@ if(count($_POST) > 0){
     {
         $this->redirect('section');
     }
-    $tests = $this->load_model('test');
-    $rows = $tests->where('id',$id); 
+    $tests =  $this->load_model('test'); 
+    $rows  =  $tests->query("SELECT * FROM tests WHERE id = :id AND teacher_id = :teacher_id" , [
+      'id'=>$id,
+      'teacher_id'=>Auth::teacher('id')
+    ]);
      if(count($_POST) > 0){
    
        $tests->delete($id); 
